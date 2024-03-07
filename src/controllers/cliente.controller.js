@@ -9,3 +9,12 @@ export const getClientes = async (req, res) =>{
     console.log(result);
     res.json(result.recordset);
 }
+
+export const getLocales = async (req, res) =>{
+    const pool = await getConnection();
+
+    const result = await pool.request().execute("usp_webcli_Listar_Locales");
+
+    console.log(result);
+    res.json(result.recordset);
+}
