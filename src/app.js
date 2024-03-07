@@ -12,7 +12,7 @@ app.use(express.json());
 
 
 //Routes
-app.use(categoryRoute);
-app.use(clienteRoute);
+app.use("/portalKunaq",categoryRoute);
+app.use("/portalKunaq", clienteRoute);
 
 export default app;
