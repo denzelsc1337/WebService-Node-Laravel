@@ -6,7 +6,7 @@ const router = Router();
 
 router.get('/clientes', getClientes );
 router.get('/locales', getLocales );
-router.get('/location/:id_cli', getInfoLocation );
+router.get('/locales/:id_cli', getInfoLocation );
 
 
 
