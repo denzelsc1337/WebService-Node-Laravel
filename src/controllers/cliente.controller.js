@@ -87,3 +87,45 @@ export const getEmpleados = async (req, res) =>{
     console.log(result);
     res.json(result.recordset);
 }
+
+
+
+export const insertCliente = async (req, res) =>{
+    try {
+        console.log(req.body);
+        const { 
+            dsc_nom_razon, 
+            dsc_nom_comer, 
+            dsc_tipo_id, 
+            cod_ind, 
+            fch_ing, 
+            usu_reg,
+            usu_mod 
+        } = req.body;
+    
+        const pool = await getConnection();
+
+        const result = await pool
+        .request()
+        .input("dsc_nom_razon", sql.VarChar, dsc_nom_razon)
+        .input("dsc_nom_comer", sql.VarChar, dsc_nom_comer)
+        .input("dsc_tipo_id", sql.VarChar, dsc_tipo_id)
+        .input("cod_ind", sql.Int, cod_ind)
+        .input("fch_ing", sql.Date, fch_ing)
+        .input("usu_reg", sql.Int, usu_reg)
+        .input("usu_mod", sql.Int, usu_mod)
+    
+        .execute("usp_webcli_InsertCliente");
+
+        console.log(result);
+    
+        res.status(200).json({
+            message: 'Guardado',
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al crear una cliente');
+    }
+
+}
+
