@@ -78,3 +78,12 @@ export const getIndustrias = async (req, res) =>{
     console.log(result);
     res.json(result.recordset);
 }
+
+export const getEmpleados = async (req, res) =>{
+    const pool = await getConnection();
+
+    const result = await pool.request().execute("usp_webcli_listaEmpleados");
+
+    console.log(result);
+    res.json(result.recordset);
+}
