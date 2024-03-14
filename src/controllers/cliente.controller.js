@@ -38,3 +38,33 @@ export const getInfoLocation = async (req, res) =>{
     return res.json(result.recordset[0]);
     // console.log(result);
 }
+
+export const updateLocation = async (req, res) =>{
+    // console.log(req.params);
+    const {id_cli, dsc_nom_razon, dsc_nom_comer, num_ruc , fch_ing, cod_ind} = req.body;
+
+    try {
+        const pool = await getConnection();
+        const result = await pool
+        .request()
+        .input('id_cli', sql.Int, id_cli)
+        .input('dsc_nom_razon', sql.VarChar, dsc_nom_razon)
+        .input('dsc_nom_comer', sql.VarChar, dsc_nom_comer)
+        .input('num_ruc', sql.VarChar, num_ruc)
+        .input('fch_ing', sql.Date, fch_ing)
+        .input('cod_ind', sql.VarChar, cod_ind)
+
+        .execute("usp_test_Update_Location");
+
+        console.log(result);
+
+        res.status(200).json({
+            message: 'Actualizado',
+            id_cli: result.recordset[0].id_cli
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar una categoria');
+    }
+}
