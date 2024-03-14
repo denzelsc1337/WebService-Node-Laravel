@@ -68,3 +68,13 @@ export const updateLocation = async (req, res) =>{
         res.status(500).send('Error al actualizar una localidad');
     }
 }
+
+
+export const getIndustrias = async (req, res) =>{
+    const pool = await getConnection();
+
+    const result = await pool.request().execute("usp_webcli_test_selectorIndustria");
+
+    console.log(result);
+    res.json(result.recordset);
+}
