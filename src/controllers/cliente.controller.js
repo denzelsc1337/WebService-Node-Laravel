@@ -60,11 +60,11 @@ export const updateLocation = async (req, res) =>{
 
         res.status(200).json({
             message: 'Actualizado',
-            id_cli: result.recordset[0].id_cli
+            // id_cli: result.recordset[0].id_cli
         });
 
     } catch (error) {
         console.error(error);
-        res.status(500).send('Error al actualizar una categoria');
+        res.status(500).send('Error al actualizar una localidad');
     }
 }
