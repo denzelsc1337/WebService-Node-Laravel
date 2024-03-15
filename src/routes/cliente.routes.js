@@ -8,6 +8,7 @@ import {
     getIndustrias,
     getEmpleados,
     insertCliente,
+    updateCliente,
     bajaCliente
 } from "../controllers/cliente.controller.js"
 
@@ -20,6 +21,7 @@ router.put('/actualizarLocal', updateLocation );
 router.get('/selectorIndustria', getIndustrias );
 router.get('/Empleados', getEmpleados );
 router.put('/AddCliente', insertCliente );
+router.put('/UpdateCliente', updateCliente );
 router.delete('/DeleteCliente', bajaCliente );
 
 
