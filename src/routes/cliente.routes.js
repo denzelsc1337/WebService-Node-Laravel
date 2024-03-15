@@ -18,7 +18,7 @@ router.get('/locales/:id_cli', getInfoLocation );
 router.put('/actualizarLocal', updateLocation );
 router.get('/selectorIndustria', getIndustrias );
 router.get('/Empleados', getEmpleados );
-router.get('/AddCliente', insertCliente );
+router.put('/AddCliente', insertCliente );
 
 
 
