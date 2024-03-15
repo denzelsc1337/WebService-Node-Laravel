@@ -147,11 +147,11 @@ export const bajaCliente = async (req, res) =>{
         console.log(result);
     
         res.status(200).json({
-            message: 'Cliente Inactivo',
+            message: 'estado de cliente actualizado',
         });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Error al crear una cliente');
+        res.status(500).send('Error al dar de baja cliente '+error);
     }
 
 }
