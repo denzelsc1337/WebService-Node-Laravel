@@ -7,7 +7,8 @@ import {
     updateLocation, 
     getIndustrias,
     getEmpleados,
-    insertCliente
+    insertCliente,
+    bajaCliente
 } from "../controllers/cliente.controller.js"
 
 const router = Router();
@@ -19,6 +20,7 @@ router.put('/actualizarLocal', updateLocation );
 router.get('/selectorIndustria', getIndustrias );
 router.get('/Empleados', getEmpleados );
 router.put('/AddCliente', insertCliente );
+router.delete('/DeleteCliente', bajaCliente );
 
 
 

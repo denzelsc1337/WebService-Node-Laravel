@@ -129,3 +129,30 @@ export const insertCliente = async (req, res) =>{
 
 }
 
+
+export const bajaCliente = async (req, res) =>{
+    try {
+        console.log(req.body);
+        const { 
+            id_cli
+        } = req.body;
+    
+        const pool = await getConnection();
+
+        const result = await pool
+        .request()
+        .input("id_cli", sql.Int, id_cli)
+        .execute("usp_portal_bajaCliente");
+
+        console.log(result);
+    
+        res.status(200).json({
+            message: 'Cliente Inactivo',
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al crear una cliente');
+    }
+
+}
+
