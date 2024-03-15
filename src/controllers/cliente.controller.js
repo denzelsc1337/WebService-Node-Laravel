@@ -141,7 +141,7 @@ export const bajaCliente = async (req, res) =>{
 
         const result = await pool
         .request()
-        .input("id_cli", sql.Int, id_cli)
+        .input("idcli", sql.Int, id_cli)
         .execute("usp_portal_bajaCliente");
 
         console.log(result);
