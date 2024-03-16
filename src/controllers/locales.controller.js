@@ -36,3 +36,23 @@ export const insertLocal = async (req, res) =>{
     }
 
 }
+
+
+export const getInfoLocal = async (req, res) =>{
+    console.log(req.params);
+    const pool = await getConnection();
+
+    const result = await pool
+    .request()
+    .input('idsucursal', sql.Int, req.params.idsucursal)
+    .execute("usp_webcli_Get_Local")
+
+    if(result.rowsAffected[0] === 0){
+        return res.status(400).json({
+            message: "Local no encontrado"
+        })
+    }
+
+    return res.json(result.recordset[0]);
+    // console.log(result);
+}

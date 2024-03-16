@@ -13,7 +13,8 @@ import {
 } from "../controllers/cliente.controller.js"
 
 import {
-    insertLocal
+    insertLocal,
+    getInfoLocal
 } from "../controllers/locales.controller.js"
 
 const router = Router();
@@ -31,6 +32,7 @@ router.delete('/DeleteCliente', bajaCliente );
 
 // crud locales
 router.put('/AddLocal', insertLocal );
+router.get('/local/:idsucursal', getInfoLocal );
 
 
 export default router;
