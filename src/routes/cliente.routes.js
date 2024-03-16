@@ -3,7 +3,7 @@ import { Router } from "express";
 import {
     getClientes, 
     getLocales, 
-    getInfoLocation, 
+    getInfoCliente, 
     updateLocation, 
     getIndustrias,
     getEmpleados,
@@ -20,17 +20,16 @@ const router = Router();
 
 router.get('/clientes', getClientes );
 router.get('/locales', getLocales );
-router.get('/locales/:id_cli', getInfoLocation );
 router.put('/actualizarLocal', updateLocation );
 router.get('/selectorIndustria', getIndustrias );
 router.get('/Empleados', getEmpleados );
 router.put('/AddCliente', insertCliente );
+router.get('/cliente/:id_cli', getInfoCliente );
 router.put('/UpdateCliente', updateCliente );
 router.delete('/DeleteCliente', bajaCliente );
 
 
 // crud locales
-
 router.put('/AddLocal', insertLocal );
 
 
