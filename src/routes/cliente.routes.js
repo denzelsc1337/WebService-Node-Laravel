@@ -12,6 +12,10 @@ import {
     bajaCliente
 } from "../controllers/cliente.controller.js"
 
+import {
+    insertLocal
+} from "../controllers/locales.controller.js"
+
 const router = Router();
 
 router.get('/clientes', getClientes );
@@ -25,6 +29,9 @@ router.put('/UpdateCliente', updateCliente );
 router.delete('/DeleteCliente', bajaCliente );
 
 
+// crud locales
+
+router.put('/AddLocal', insertLocal );
 
 
 export default router;
