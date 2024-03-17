@@ -17,7 +17,8 @@ import {
     insertLocal,
     updateLocal,
     bajaLocal,
-    getInfoLocal
+    getInfoLocal,
+    selectorLocalesxCliente
 } from "../controllers/locales.controller.js"
 
 const router = Router();
@@ -42,5 +43,7 @@ router.get('/local/:idsucursal', getInfoLocal );
 //selectors 
 router.get('/selectorClientes', selectorClientes );
 router.get('/selectorServicios', selectorServicios );
+router.get('/local/:id_cliente', selectorLocalesxCliente );
+
 
 export default router;

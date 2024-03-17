@@ -111,3 +111,29 @@ export const getInfoLocal = async (req, res) =>{
     return res.json(result.recordset[0]);
     // console.log(result);
 }
+
+
+
+export const selectorLocalesxCliente = async (req, res) =>{
+    try {
+        console.log(req.params);
+        const pool = await getConnection();
+    
+        const result = await pool
+        .request()
+        .input('id_cliente', sql.Int, req.params.id_cliente)
+        .execute("usp_webcli_selector_LocalesxCliente")
+    
+        if(result.rowsAffected[0] === 0){
+            return res.status(400).json({
+                message: "Locales no encontrados"
+            })
+        }
+        return res.json(result.recordset[0]);
+        // console.log(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al dar de baja local '+error);
+    }
+
+}
