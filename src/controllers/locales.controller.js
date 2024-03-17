@@ -37,6 +37,34 @@ export const insertLocal = async (req, res) =>{
 
 }
 
+export const updateLocal = async (req, res) =>{
+    // console.log(req.params);
+    const {id_sucur, id_cli, dsc_sucursal, dsc_direccion} = req.body;
+
+    try {
+        const pool = await getConnection();
+        const result = await pool
+        .request()
+        .input('id_sucur', sql.Int, id_sucur)
+        .input('id_cli', sql.Int, id_cli)
+        .input('dsc_sucursal', sql.VarChar, dsc_sucursal)
+        .input('dsc_direccion', sql.VarChar, dsc_direccion)
+
+        .execute("usp_portal_Update_Local");
+
+        console.log(result);
+
+        res.status(200).json({
+            message: 'Actualizado',
+            id_sucursal: result.recordset[0].id_sucur
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar una localidad');
+    }
+}
+
 
 export const getInfoLocal = async (req, res) =>{
     console.log(req.params);

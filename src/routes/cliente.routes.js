@@ -4,7 +4,6 @@ import {
     getClientes, 
     getLocales, 
     getInfoCliente, 
-    updateLocation, 
     getIndustrias,
     getEmpleados,
     insertCliente,
@@ -16,6 +15,7 @@ import {
 
 import {
     insertLocal,
+    updateLocal,
     getInfoLocal
 } from "../controllers/locales.controller.js"
 
@@ -34,6 +34,7 @@ router.delete('/DeleteCliente', bajaCliente );
 // crud locales
 router.get('/locales', getLocales );
 router.put('/AddLocal', insertLocal );
+router.put('/updateLocal', updateLocal );
 router.get('/local/:idsucursal', getInfoLocal );
 
 
