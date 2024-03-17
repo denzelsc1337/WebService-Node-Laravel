@@ -42,8 +42,6 @@ export const getInfoCliente = async (req, res) =>{
 
 
 
-
-
 export const getEmpleados = async (req, res) =>{
     const pool = await getConnection();
 
