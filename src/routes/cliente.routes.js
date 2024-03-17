@@ -9,7 +9,8 @@ import {
     getEmpleados,
     insertCliente,
     updateCliente,
-    bajaCliente
+    bajaCliente,
+    selectorClientes
 } from "../controllers/cliente.controller.js"
 
 import {
@@ -20,7 +21,6 @@ import {
 const router = Router();
 
 router.get('/clientes', getClientes );
-router.get('/locales', getLocales );
 router.put('/actualizarLocal', updateLocation );
 router.get('/selectorIndustria', getIndustrias );
 router.get('/Empleados', getEmpleados );
@@ -31,8 +31,12 @@ router.delete('/DeleteCliente', bajaCliente );
 
 
 // crud locales
+router.get('/locales', getLocales );
 router.put('/AddLocal', insertLocal );
 router.get('/local/:idsucursal', getInfoLocal );
 
+
+//selectors 
+router.get('/selectorClientes', selectorClientes );
 
 export default router;
