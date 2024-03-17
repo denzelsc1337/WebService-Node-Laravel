@@ -43,7 +43,7 @@ router.get('/local/:idsucursal', getInfoLocal );
 //selectors 
 router.get('/selectorClientes', selectorClientes );
 router.get('/selectorServicios', selectorServicios );
-router.get('/local/:id_cliente', selectorLocalesxCliente );
+router.get('/selectorLocalCliente/:id_cliente', selectorLocalesxCliente );
 
 
 export default router;
