@@ -190,6 +190,17 @@ export const getIndustrias = async (req, res) =>{
 }
 
 
+export const selectorServicios = async (req, res) =>{
+    const pool = await getConnection();
+
+    const result = await pool.request().execute("usp_webcli_selectorServicios");
+
+    console.log(result);
+    res.json(result.recordset);
+}
+
+
+
 export const selectorClientes = async (req, res) =>{
     const pool = await getConnection();
 

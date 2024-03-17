@@ -10,7 +10,8 @@ import {
     insertCliente,
     updateCliente,
     bajaCliente,
-    selectorClientes
+    selectorClientes,
+    selectorServicios
 } from "../controllers/cliente.controller.js"
 
 import {
@@ -38,5 +39,6 @@ router.get('/local/:idsucursal', getInfoLocal );
 
 //selectors 
 router.get('/selectorClientes', selectorClientes );
+router.get('/selectorServicios', selectorServicios );
 
 export default router;
