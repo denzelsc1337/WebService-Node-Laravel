@@ -66,6 +66,33 @@ export const updateLocal = async (req, res) =>{
 }
 
 
+export const bajaLocal = async (req, res) =>{
+    try {
+        console.log(req.body);
+        const { 
+            idsuc
+        } = req.body;
+    
+        const pool = await getConnection();
+
+        const result = await pool
+        .request()
+        .input("idsuc", sql.Int, idsuc)
+        .execute("usp_portal_baja_Local");
+
+        console.log(result);
+    
+        res.status(200).json({
+            message: 'estado de local actualizado',
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al dar de baja local '+error);
+    }
+
+}
+
+
 export const getInfoLocal = async (req, res) =>{
     console.log(req.params);
     const pool = await getConnection();

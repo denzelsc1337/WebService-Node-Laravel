@@ -16,6 +16,7 @@ import {
 import {
     insertLocal,
     updateLocal,
+    bajaLocal,
     getInfoLocal
 } from "../controllers/locales.controller.js"
 
@@ -34,6 +35,7 @@ router.delete('/DeleteCliente', bajaCliente );
 router.get('/locales', getLocales );
 router.put('/AddLocal', insertLocal );
 router.put('/updateLocal', updateLocal );
+router.delete('/DeleteLocal', bajaLocal );
 router.get('/local/:idsucursal', getInfoLocal );
 
 
