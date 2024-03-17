@@ -22,7 +22,6 @@ import {
 const router = Router();
 
 router.get('/clientes', getClientes );
-router.put('/actualizarLocal', updateLocation );
 router.get('/selectorIndustria', getIndustrias );
 router.get('/Empleados', getEmpleados );
 router.put('/AddCliente', insertCliente );
