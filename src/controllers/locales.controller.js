@@ -129,7 +129,7 @@ export const selectorLocalesxCliente = async (req, res) =>{
                 message: "Locales no encontrados"
             })
         }
-        return res.json(result.recordset[0]);
+        res.json(result.recordset);
         // console.log(result);
     } catch (error) {
         console.error(error);
