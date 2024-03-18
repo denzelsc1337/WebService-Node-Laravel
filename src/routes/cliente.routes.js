@@ -42,7 +42,8 @@ import{
     getMarcas,
     getInfoMarca,
     insertMarca,
-    updateMarca
+    updateMarca,
+    bajaMarca
 }from "../controllers/marcas.controller.js"
 
 const router = Router();
@@ -82,6 +83,7 @@ router.get('/marcas', getMarcas );
 router.get('/Marca/:id_marca', getInfoMarca );
 router.put('/AddMarca', insertMarca );
 router.put('/updateMarca', updateMarca );
+router.delete('/DeleteMarca', bajaMarca );
 
 
 //selectors 
