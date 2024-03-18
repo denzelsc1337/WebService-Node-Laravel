@@ -37,3 +37,22 @@ export const insertPeriferico = async (req, res) =>{
     }
 
 }
+
+export const getInfoPeriferico = async (req, res) =>{
+    console.log(req.params);
+    const pool = await getConnection();
+
+    const result = await pool
+    .request()
+    .input('id_perif', sql.Int, req.params.id_perif)
+    .execute("usp_portal_Info_Periferico")
+
+    if(result.rowsAffected[0] === 0){
+        return res.status(400).json({
+            message: "Periferico no encontrado"
+        })
+    }
+
+    return res.json(result.recordset[0]);
+    // console.log(result);
+}

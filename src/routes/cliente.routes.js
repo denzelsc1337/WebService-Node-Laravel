@@ -31,7 +31,8 @@ import {
 
 
 import {
-    insertPeriferico
+    insertPeriferico,
+    getInfoPeriferico
 }from "../controllers/periferico.controller.js"
 
 const router = Router();
@@ -62,6 +63,7 @@ router.delete('/DeleteEmpleado', bajaEmpleado );
 //crud periferico
 
 router.put('/AddPeriferico', insertPeriferico );
+router.put('/Periferico/:id_perif', getInfoPeriferico );
 
 
 
