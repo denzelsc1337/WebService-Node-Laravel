@@ -23,7 +23,7 @@ import {
 
 import {
     getEmpleados
-} from "../controllers/empleados.controller.js"
+} from "../controllers/empleado.controller.js"
 
 const router = Router();
 
