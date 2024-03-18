@@ -37,6 +37,11 @@ import {
     getInfoPeriferico
 }from "../controllers/periferico.controller.js"
 
+
+import{
+    getMarcas
+}from "../controllers/marcas.controller.js"
+
 const router = Router();
 
 router.get('/clientes', getClientes );
@@ -69,7 +74,8 @@ router.get('/Periferico/:id_perif', getInfoPeriferico );
 router.put('/updatePeriferico', updatePeriferico );
 router.delete('/DeletePeriferico', bajaPeriferico );
 
-
+//crud marcas
+router.get('/marcas', getMarcas );
 
 
 //selectors 
