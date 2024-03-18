@@ -46,6 +46,11 @@ import{
     bajaMarca
 }from "../controllers/marcas.controller.js"
 
+
+import{
+    getModelos
+}from "../controllers/modelo.controller.js"
+
 const router = Router();
 
 router.get('/clientes', getClientes );
@@ -84,6 +89,10 @@ router.get('/Marca/:id_marca', getInfoMarca );
 router.put('/AddMarca', insertMarca );
 router.put('/updateMarca', updateMarca );
 router.delete('/DeleteMarca', bajaMarca );
+
+
+//crud modelos
+router.get('/modelos', getModelos );
 
 
 //selectors 
