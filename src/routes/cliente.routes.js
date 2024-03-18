@@ -63,7 +63,7 @@ router.delete('/DeleteEmpleado', bajaEmpleado );
 //crud periferico
 
 router.put('/AddPeriferico', insertPeriferico );
-router.put('/Periferico/:id_perif', getInfoPeriferico );
+router.get('/Periferico/:id_perif', getInfoPeriferico );
 
 
 
