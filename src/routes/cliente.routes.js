@@ -50,7 +50,7 @@ router.get('/local/:idsucursal', getInfoLocal );
 //crud empleados
 router.get('/Empleado/:id_empl', getInfoEmpleado );
 router.put('/AddEmpleado', insertEmpleado );
-router.put('/updateEmpelado', updateEmpleado );
+router.put('/updateEmpleado', updateEmpleado );
 
 
 
