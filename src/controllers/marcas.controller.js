@@ -40,7 +40,8 @@ export const insertMarca = async (req, res) =>{
     try {
         console.log(req.body);
         const { 
-            dsc_marca
+            dsc_marca,
+            flg_soft
         } = req.body;
     
         const pool = await getConnection();
@@ -48,6 +49,7 @@ export const insertMarca = async (req, res) =>{
         const result = await pool
         .request()
         .input("dsc_marca", sql.VarChar, dsc_marca)
+        .input("flg_soft", sql.Char, flg_soft)
 
         .execute("usp_portal_Insert_Marca");
 
