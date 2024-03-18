@@ -64,6 +64,33 @@ export const updatePeriferico = async (req, res) =>{
     }
 }
 
+
+export const bajaPeriferico = async (req, res) =>{
+    try {
+        console.log(req.body);
+        const { 
+            id_perif
+        } = req.body;
+    
+        const pool = await getConnection();
+
+        const result = await pool
+        .request()
+        .input("id_perif", sql.Int, id_perif)
+        .execute("usp_portal_baja_Periferico");
+
+        console.log(result);
+    
+        res.status(200).json({
+            message: 'estado de cliente actualizado',
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al dar de baja cliente '+error);
+    }
+
+}
+
 export const getInfoPeriferico = async (req, res) =>{
     console.log(req.params);
     const pool = await getConnection();
