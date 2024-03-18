@@ -11,6 +11,31 @@ export const getModelos = async (req, res) =>{
 }
 
 
+export const getInfoModelo = async (req, res) =>{
+    try {
+        console.log(req.params);
+        const pool = await getConnection();
+    
+        const result = await pool
+        .request()
+        .input('id_modelo', sql.Int, req.params.id_modelo)
+        .query("SELECT * FROM ma_modelos WHERE id_modelo = @id_modelo")
+    
+        if(result.rowsAffected[0] === 0){
+            return res.status(400).json({
+                message: "Modelo no encontrada"
+            })
+        }
+        return res.json(result.recordset[0]);
+    } catch (error) {
+        console.log(error);
+    }
+
+    // console.log(result);
+}
+
+
+
 export const insertModelo = async (req, res) =>{
     try {
         console.log(req.body);

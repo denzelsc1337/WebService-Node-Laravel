@@ -49,7 +49,8 @@ import{
 
 import{
     getModelos,
-    insertModelo
+    insertModelo,
+    getInfoModelo
 }from "../controllers/modelo.controller.js"
 
 const router = Router();
@@ -95,6 +96,7 @@ router.delete('/DeleteMarca', bajaMarca );
 //crud modelos
 router.get('/modelos', getModelos );
 router.put('/AddModelo', insertModelo );
+router.get('/Modelo/:id_modelo', getInfoModelo);
 
 
 //selectors 
