@@ -24,7 +24,8 @@ import {
 import {
     getEmpleados,
     getInfoEmpleado,
-    insertEmpleado
+    insertEmpleado,
+    updateEmpleado
 } from "../controllers/empleado.controller.js"
 
 const router = Router();
@@ -49,6 +50,8 @@ router.get('/local/:idsucursal', getInfoLocal );
 //crud empleados
 router.get('/Empleado/:id_empl', getInfoEmpleado );
 router.put('/AddEmpleado', insertEmpleado );
+router.put('/updateEmpelado', updateEmpleado );
+
 
 
 

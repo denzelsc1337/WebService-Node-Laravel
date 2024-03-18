@@ -50,6 +50,59 @@ export const insertEmpleado = async (req, res) =>{
 
 
 
+export const updateEmpleado = async (req, res) =>{
+    // console.log(req.params);
+    const { 
+        id_emp,
+        nom_empl,
+        ape_empl,
+        id_cli, 
+        id_local,
+        tipo_doc,
+        nro_doc ,
+        telf ,
+        mail,
+        cargo,
+        area,
+        direccion
+    } = req.body;
+
+    try {
+        const pool = await getConnection();
+        const result = await pool
+        .request()
+        .input("id_emp", sql.Int, id_emp)
+        .input("nom_empl", sql.VarChar, nom_empl)
+        .input("ape_empl", sql.VarChar, ape_empl)
+        .input("id_cli", sql.Int, id_cli)
+        .input("id_local", sql.Int, id_local)
+        .input("tipo_doc", sql.Int, tipo_doc)
+        .input("nro_doc", sql.VarChar, nro_doc)
+        .input("telf", sql.VarChar, telf)
+        .input("mail", sql.VarChar, mail)
+        .input("cargo", sql.VarChar, cargo)
+        .input("area", sql.VarChar, area)
+        .input("direccion", sql.VarChar, direccion)
+
+    
+        .execute("usp_portal_Update_Empleado");
+
+
+        console.log(result);
+
+        res.status(200).json({
+            message: 'Actualizado',
+            id_sucursal: result.recordset[0].id_sucur
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar una localidad');
+    }
+}
+
+
+
 export const getEmpleados = async (req, res) =>{
     const pool = await getConnection();
 
