@@ -23,7 +23,8 @@ import {
 
 import {
     getEmpleados,
-    getInfoEmpleado
+    getInfoEmpleado,
+    insertEmpleado
 } from "../controllers/empleado.controller.js"
 
 const router = Router();
@@ -47,6 +48,8 @@ router.get('/local/:idsucursal', getInfoLocal );
 
 //crud empleados
 router.get('/Empleado/:id_empl', getInfoEmpleado );
+router.put('/AddEmpleado', insertEmpleado );
+
 
 
 //selectors 
