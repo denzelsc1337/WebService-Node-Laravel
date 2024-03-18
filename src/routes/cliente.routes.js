@@ -5,7 +5,6 @@ import {
     getLocales, 
     getInfoCliente, 
     getIndustrias,
-    getEmpleados,
     insertCliente,
     updateCliente,
     bajaCliente,
@@ -20,6 +19,11 @@ import {
     getInfoLocal,
     selectorLocalesxCliente
 } from "../controllers/locales.controller.js"
+
+
+import {
+    getEmpleados
+} from "../controllers/empleados.controller.js"
 
 const router = Router();
 
