@@ -50,6 +50,7 @@ import{
 import{
     getModelos,
     insertModelo,
+    updateModelo,
     getInfoModelo
 }from "../controllers/modelo.controller.js"
 
@@ -97,6 +98,7 @@ router.delete('/DeleteMarca', bajaMarca );
 router.get('/modelos', getModelos );
 router.put('/AddModelo', insertModelo );
 router.get('/Modelo/:id_modelo', getInfoModelo);
+router.put('/updateModelo', updateModelo );
 
 
 //selectors 

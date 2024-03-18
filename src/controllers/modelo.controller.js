@@ -66,3 +66,31 @@ export const insertModelo = async (req, res) =>{
     }
 
 }
+
+
+
+export const updateModelo = async (req, res) =>{
+    const {id_modelo, id_perif, id_marca, dsc_modelo} = req.body;
+
+    try {
+        const pool = await getConnection();
+        const result = await pool
+        .request()
+        .input('id_modelo', sql.Int, id_modelo)
+        .input('id_perif', sql.Int, id_perif)
+        .input("id_marca", sql.Int, id_marca)
+        .input("dsc_modelo", sql.VarChar, dsc_modelo)
+
+        .execute("usp_portal_Update_Modelo");
+
+        console.log(result);
+
+        res.status(200).json({
+            message: 'Actualizado',
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar modelo');
+    }
+}
