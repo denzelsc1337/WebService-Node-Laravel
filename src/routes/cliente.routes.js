@@ -22,7 +22,8 @@ import {
 
 
 import {
-    getEmpleados
+    getEmpleados,
+    getInfoEmpleado
 } from "../controllers/empleado.controller.js"
 
 const router = Router();
@@ -44,10 +45,16 @@ router.delete('/DeleteLocal', bajaLocal );
 router.get('/local/:idsucursal', getInfoLocal );
 
 
+//crud empleados
+router.get('/Empleado/:id_empl', getInfoEmpleado );
+
+
 //selectors 
 router.get('/selectorClientes', selectorClientes );
 router.get('/selectorServicios', selectorServicios );
 router.get('/selectorLocalCliente/:id_cliente', selectorLocalesxCliente );
+
+
 
 
 export default router;
