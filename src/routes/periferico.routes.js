@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import {getPerifericos} from "../controllers/perfiferico.controller.js";
+import {getPerifericos} from "../controllers/periferico.controller.js";
 
 
 const router = Router();

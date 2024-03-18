@@ -29,6 +29,11 @@ import {
     bajaEmpleado
 } from "../controllers/empleado.controller.js"
 
+
+import {
+    insertPeriferico
+}from "../controllers/periferico.controller.js"
+
 const router = Router();
 
 router.get('/clientes', getClientes );
@@ -54,6 +59,9 @@ router.put('/AddEmpleado', insertEmpleado );
 router.put('/updateEmpleado', updateEmpleado );
 router.delete('/DeleteEmpleado', bajaEmpleado );
 
+//crud periferico
+
+router.put('/AddPeriferico', insertPeriferico );
 
 
 
