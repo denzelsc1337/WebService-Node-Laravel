@@ -33,3 +33,32 @@ export const getInfoMarca = async (req, res) =>{
 
     // console.log(result);
 }
+
+
+
+export const insertMarca = async (req, res) =>{
+    try {
+        console.log(req.body);
+        const { 
+            dsc_marca
+        } = req.body;
+    
+        const pool = await getConnection();
+
+        const result = await pool
+        .request()
+        .input("dsc_marca", sql.VarChar, dsc_marca)
+
+        .execute("usp_portal_Insert_Marca");
+
+        console.log(result);
+    
+        res.status(200).json({
+            message: 'Marca guardada',
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al crear una marca');
+    }
+
+}
