@@ -64,3 +64,31 @@ export const insertMarca = async (req, res) =>{
     }
 
 }
+
+
+export const updateMarca = async (req, res) =>{
+    const {id_marca, dsc_marca, flg_soft, flg_hard, flg_activo} = req.body;
+
+    try {
+        const pool = await getConnection();
+        const result = await pool
+        .request()
+        .input('id_marca', sql.Int, id_marca)
+        .input('dsc_marca', sql.VarChar, dsc_marca)
+        .input("flg_soft", sql.Char, flg_soft)
+        .input("flg_hard", sql.Char, flg_hard)
+        .input("flg_activo", sql.Char, flg_activo)
+
+        .execute("usp_portal_Update_Marca");
+
+        console.log(result);
+
+        res.status(200).json({
+            message: 'Actualizado',
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar marca');
+    }
+}
