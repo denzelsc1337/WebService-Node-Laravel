@@ -82,11 +82,11 @@ export const bajaPeriferico = async (req, res) =>{
         console.log(result);
     
         res.status(200).json({
-            message: 'estado de cliente actualizado',
+            message: 'estado de periferico actualizado',
         });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Error al dar de baja cliente '+error);
+        res.status(500).send('Error al dar de baja periferico '+error);
     }
 
 }
