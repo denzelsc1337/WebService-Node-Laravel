@@ -102,6 +102,33 @@ export const updateEmpleado = async (req, res) =>{
 }
 
 
+export const bajaEmpleado = async (req, res) =>{
+    try {
+        console.log(req.body);
+        const { 
+            idemp
+        } = req.body;
+    
+        const pool = await getConnection();
+
+        const result = await pool
+        .request()
+        .input("idemp", sql.Int, idemp)
+        .execute("usp_portal_baja_Empleado");
+
+        console.log(result);
+    
+        res.status(200).json({
+            message: 'estado de empleado actualizado',
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al dar de baja empleado '+error);
+    }
+
+}
+
+
 
 export const getEmpleados = async (req, res) =>{
     const pool = await getConnection();

@@ -25,7 +25,8 @@ import {
     getEmpleados,
     getInfoEmpleado,
     insertEmpleado,
-    updateEmpleado
+    updateEmpleado,
+    bajaEmpleado
 } from "../controllers/empleado.controller.js"
 
 const router = Router();
@@ -51,6 +52,7 @@ router.get('/local/:idsucursal', getInfoLocal );
 router.get('/Empleado/:id_empl', getInfoEmpleado );
 router.put('/AddEmpleado', insertEmpleado );
 router.put('/updateEmpleado', updateEmpleado );
+router.delete('/DeleteEmpleado', bajaEmpleado );
 
 
 
