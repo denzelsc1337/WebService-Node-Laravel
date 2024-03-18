@@ -32,6 +32,7 @@ import {
 
 import {
     insertPeriferico,
+    updatePeriferico,
     getInfoPeriferico
 }from "../controllers/periferico.controller.js"
 
@@ -64,6 +65,7 @@ router.delete('/DeleteEmpleado', bajaEmpleado );
 
 router.put('/AddPeriferico', insertPeriferico );
 router.get('/Periferico/:id_perif', getInfoPeriferico );
+router.put('/updatePeriferico', updatePeriferico );
 
 
 

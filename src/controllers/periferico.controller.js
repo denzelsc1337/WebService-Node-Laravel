@@ -38,6 +38,32 @@ export const insertPeriferico = async (req, res) =>{
 
 }
 
+
+
+export const updatePeriferico = async (req, res) =>{
+    const {id_perif, dsc_perif} = req.body;
+
+    try {
+        const pool = await getConnection();
+        const result = await pool
+        .request()
+        .input('id_perif', sql.Int, id_perif)
+        .input('dsc_perif', sql.VarChar, dsc_perif)
+
+        .execute("usp_portal_Update_Periferico");
+
+        console.log(result);
+
+        res.status(200).json({
+            message: 'Actualizado',
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar una localidad');
+    }
+}
+
 export const getInfoPeriferico = async (req, res) =>{
     console.log(req.params);
     const pool = await getConnection();
