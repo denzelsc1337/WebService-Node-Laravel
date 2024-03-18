@@ -11,20 +11,25 @@ export const getMarcas = async (req, res) =>{
 }
 
 export const getInfoMarca = async (req, res) =>{
-    console.log(req.params);
-    const pool = await getConnection();
-
-    const result = await pool
-    .request()
-    .input('id_marca', sql.Int, req.params.id_marca)
-    .query("SELECT * FROM ma_marcas WHERE id_marca = '" + req.params.id_marca)
-
-    if(result.rowsAffected[0] === 0){
-        return res.status(400).json({
-            message: "Marca no encontrada"
-        })
+    try {
+        console.log(req.params);
+        const pool = await getConnection();
+    
+        const result = await pool
+        .request()
+        .input('id_marca', sql.Int, req.params.id_marca)
+        .query("SELECT * FROM ma_marcas WHERE id_marca = @id_marca")
+    
+        if(result.rowsAffected[0] === 0){
+            return res.status(400).json({
+                message: "Marca no encontrada"
+            })
+        }
+    
+        return res.json(result.recordset[0]);
+    } catch (error) {
+        console.log(error);
     }
 
-    return res.json(result.recordset[0]);
     // console.log(result);
 }
