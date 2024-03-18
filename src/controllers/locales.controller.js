@@ -133,7 +133,7 @@ export const selectorLocalesxCliente = async (req, res) =>{
         // console.log(result);
     } catch (error) {
         console.error(error);
-        res.status(500).send('Error al dar de baja local '+error);
+        res.status(500).send('Error al encontrar los locales '+error);
     }
 
 }
