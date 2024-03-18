@@ -92,7 +92,7 @@ export const updateEmpleado = async (req, res) =>{
 
         res.status(200).json({
             message: 'Actualizado',
-            id_usuario: result.recordset[0].id_usuario
+            // id_usuario: result.recordset[0].id_usuario
         });
 
     } catch (error) {
