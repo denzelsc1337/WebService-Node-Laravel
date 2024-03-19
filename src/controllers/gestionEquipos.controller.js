@@ -1,3 +1,6 @@
+import {getConnection, sql} from '../database/connection.js'
+
+
 export const getEquipos = async (req, res) =>{
     const pool = await getConnection();
 
