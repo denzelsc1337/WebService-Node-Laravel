@@ -63,6 +63,9 @@ import {
     updateProcesador
 }from "../controllers/procesador.controller.js"
 
+
+import { getEquipos } from "../controllers/gestionEquipos.controller.js";
+
 const router = Router();
 
 router.get('/clientes', getClientes );
@@ -117,6 +120,8 @@ router.get('/Procesador/:id_procesador', getInfoProcesador);
 router.put('/updateProcesador', updateProcesador );
 router.delete('/DeleteProcesador', bajaProcesador );
 
+//crud gestion equipos
+router.get('/equiposInventario', getEquipos );
 
 
 //selectors 
