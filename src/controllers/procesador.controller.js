@@ -62,3 +62,28 @@ export const getInfoProcesador = async (req, res) =>{
     // console.log(result);
 }
 
+
+export const updateProcesador = async (req, res) =>{
+    const {id_procs, dsc_procs,flg_activo} = req.body;
+
+    try {
+        const pool = await getConnection();
+        const result = await pool
+        .request()
+        .input('id_procs', sql.Int, id_procs)
+        .input('dsc_procs', sql.VarChar, dsc_procs)
+        .input('flg_activo', sql.Char, flg_activo)
+
+        .execute("usp_portal_Update_Procesador");
+
+        console.log(result);
+
+        res.status(200).json({
+            message: 'Actualizado',
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar un procesador');
+    }
+}
