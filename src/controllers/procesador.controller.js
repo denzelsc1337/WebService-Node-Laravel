@@ -37,3 +37,28 @@ export const insertProcesador = async (req, res) =>{
     }
 
 }
+
+
+export const getInfoProcesador = async (req, res) =>{
+    try {
+        console.log(req.params);
+        const pool = await getConnection();
+    
+        const result = await pool
+        .request()
+        .input('id_procesador', sql.Int, req.params.id_procesador)
+        .query("SELECT * FROM ma_procesador WHERE id_procesador = @id_procesador")
+    
+        if(result.rowsAffected[0] === 0){
+            return res.status(400).json({
+                message: "Procesador no encontrado"
+            })
+        }
+        return res.json(result.recordset[0]);
+    } catch (error) {
+        console.log(error);
+    }
+
+    // console.log(result);
+}
+
