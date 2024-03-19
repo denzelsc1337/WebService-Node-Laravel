@@ -56,6 +56,7 @@ import{
 
 
 import {
+    bajaProcesador,
     getInfoProcesador,
     getProcesadores,
     insertProcesador,
@@ -114,6 +115,7 @@ router.get('/procesadores', getProcesadores );
 router.put('/AddProcesador', insertProcesador );
 router.get('/Procesador/:id_procesador', getInfoProcesador);
 router.put('/updateProcesador', updateProcesador );
+router.delete('/DeleteProcesador', bajaProcesador );
 
 
 

@@ -87,3 +87,30 @@ export const updateProcesador = async (req, res) =>{
         res.status(500).send('Error al actualizar un procesador');
     }
 }
+
+
+export const bajaProcesador = async (req, res) =>{
+    try {
+        console.log(req.body);
+        const { 
+            id_procs
+        } = req.body;
+    
+        const pool = await getConnection();
+
+        const result = await pool
+        .request()
+        .input("id_procs", sql.Int, id_procs)
+        .execute("usp_portal_baja_Procesador");
+
+        console.log(result);
+    
+        res.status(200).json({
+            message: 'estado de procesador actualizado',
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al dar de baja procesador '+error);
+    }
+
+}
