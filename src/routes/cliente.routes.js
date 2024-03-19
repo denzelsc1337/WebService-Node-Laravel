@@ -64,7 +64,9 @@ import {
 }from "../controllers/procesador.controller.js"
 
 
-import { getEquipos } from "../controllers/gestionEquipos.controller.js";
+import {
+     getEquipos
+} from "../controllers/gestionEquipos.controller.js";
 
 const router = Router();
 
