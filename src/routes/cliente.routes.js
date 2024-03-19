@@ -56,7 +56,8 @@ import{
 
 
 import {
-    getProcesadores
+    getProcesadores,
+    insertProcesador
 }from "../controllers/procesador.controller.js"
 
 const router = Router();
@@ -108,6 +109,7 @@ router.put('/updateModelo', updateModelo );
 
 //crud procesadores
 router.get('/procesadores', getProcesadores );
+router.put('/AddProcesador', insertProcesador );
 
 
 //selectors 
