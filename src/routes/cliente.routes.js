@@ -54,6 +54,11 @@ import{
     getInfoModelo
 }from "../controllers/modelo.controller.js"
 
+
+import {
+    getProcesadores
+}from "../controllers/procesador.controller.js"
+
 const router = Router();
 
 router.get('/clientes', getClientes );
@@ -99,6 +104,10 @@ router.get('/modelos', getModelos );
 router.put('/AddModelo', insertModelo );
 router.get('/Modelo/:id_modelo', getInfoModelo);
 router.put('/updateModelo', updateModelo );
+
+
+//crud procesadores
+router.get('/procesadores', getProcesadores );
 
 
 //selectors 
