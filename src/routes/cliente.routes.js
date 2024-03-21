@@ -67,7 +67,8 @@ import {
 import {
      getEquipos, 
      getInfoEquipo, 
-     insertEquipoInventario
+     insertEquipoInventario,
+     updateEquipoInvent
 } from "../controllers/gestionEquipos.controller.js";
 
 const router = Router();
@@ -128,6 +129,7 @@ router.delete('/DeleteProcesador', bajaProcesador );
 router.get('/equiposInventario', getEquipos );
 router.put('/AddEquipo', insertEquipoInventario );
 router.get('/Equipo/:id_equipo', getInfoEquipo);
+router.put('/UpdateEquipo', updateEquipoInvent );
 
 
 //selectors 
