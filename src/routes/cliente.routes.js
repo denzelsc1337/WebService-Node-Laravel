@@ -69,6 +69,7 @@ import {
      getInfoEquipo, 
      insertEquipoInventario,
      selectorMarcaxPeriferico,
+     selectorModeloxMarca,
      updateEquipoInvent
 } from "../controllers/gestionEquipos.controller.js";
 
@@ -138,6 +139,7 @@ router.get('/selectorClientes', selectorClientes );
 router.get('/selectorServicios', selectorServicios );
 router.get('/selectorLocalCliente/:id_cliente', selectorLocalesxCliente );
 router.get('/selectorMarcasXPeriferico/:id_periferico', selectorMarcaxPeriferico );
+router.get('/selectorModeloXMarca/:id_marca', selectorModeloxMarca );
 
 
 
