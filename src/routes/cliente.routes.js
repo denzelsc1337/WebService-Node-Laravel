@@ -65,7 +65,8 @@ import {
 
 
 import {
-     getEquipos
+     getEquipos, 
+     insertEquipoInventario
 } from "../controllers/gestionEquipos.controller.js";
 
 const router = Router();
@@ -124,6 +125,7 @@ router.delete('/DeleteProcesador', bajaProcesador );
 
 //crud gestion equipos
 router.get('/equiposInventario', getEquipos );
+router.get('/AddEquipo', insertEquipoInventario );
 
 
 //selectors 
