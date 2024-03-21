@@ -125,7 +125,7 @@ router.delete('/DeleteProcesador', bajaProcesador );
 
 //crud gestion equipos
 router.get('/equiposInventario', getEquipos );
-router.get('/AddEquipo', insertEquipoInventario );
+router.put('/AddEquipo', insertEquipoInventario );
 
 
 //selectors 
