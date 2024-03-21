@@ -112,7 +112,7 @@ export const insertEquipoInventario = async (req, res) =>{
         .input("dsc_observaciones", sql.VarChar, dsc_observaciones)
 
         
-        .execute("usp_portal_Insert_Inventario_Equipos");
+        .execute("usp_portal_Update_Inventario_Equipos");
 
         console.log(result);
     
