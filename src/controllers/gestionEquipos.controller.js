@@ -194,3 +194,29 @@ export const updateEquipoInvent = async (req, res) =>{
         res.status(500).send('Error al actualizar equipo');
     }
 }
+
+
+
+export const selectorMarcaxPeriferico = async (req, res) =>{
+    try {
+        console.log(req.params);
+        const pool = await getConnection();
+    
+        const result = await pool
+        .request()
+        .input('id_periferico', sql.Int, req.params.id_periferico)
+        .execute("usp_portal_MarcaXPeriferico_Inventario")
+    
+        if(result.rowsAffected[0] === 0){
+            return res.status(400).json({
+                message: "Marcas no encontradas"
+            })
+        }
+        res.json(result.recordset);
+        // console.log(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al encontrar los locales '+error);
+    }
+
+}
