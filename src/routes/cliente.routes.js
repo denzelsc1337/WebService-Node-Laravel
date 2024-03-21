@@ -66,6 +66,7 @@ import {
 
 import {
      getEquipos, 
+     getInfoEquipo, 
      insertEquipoInventario
 } from "../controllers/gestionEquipos.controller.js";
 
@@ -126,12 +127,14 @@ router.delete('/DeleteProcesador', bajaProcesador );
 //crud gestion equipos
 router.get('/equiposInventario', getEquipos );
 router.put('/AddEquipo', insertEquipoInventario );
+router.get('/Equipo/:id_equipo', getInfoEquipo);
 
 
 //selectors 
 router.get('/selectorClientes', selectorClientes );
 router.get('/selectorServicios', selectorServicios );
 router.get('/selectorLocalCliente/:id_cliente', selectorLocalesxCliente );
+
 
 
 

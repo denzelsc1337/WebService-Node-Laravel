@@ -12,6 +12,31 @@ export const getEquipos = async (req, res) =>{
 }
 
 
+export const getInfoEquipo = async (req, res) =>{
+    try {
+        console.log(req.params);
+        const pool = await getConnection();
+    
+        const result = await pool
+        .request()
+        .input('id_equipo', sql.Int, req.params.id_equipo)
+        .query("SELECT * FROM de_clientes_equipos WHERE id_equipo = @id_equipo")
+    
+        if(result.rowsAffected[0] === 0){
+            return res.status(400).json({
+                message: "Marca no encontrada"
+            })
+        }
+    
+        return res.json(result.recordset[0]);
+    } catch (error) {
+        console.log(error);
+    }
+
+    // console.log(result);
+}
+
+
 export const insertEquipoInventario = async (req, res) =>{
     try {
         console.log(req.body);
