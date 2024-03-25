@@ -150,7 +150,8 @@ export const updateEquipoInvent = async (req, res) =>{
         dsc_contrato_alq,
         id_proveedor_alq,
         imp_cuota_alq ,
-        dsc_observaciones
+        dsc_observaciones,
+        dsc_nro_inventario
     } = req.body;
 
     try {
@@ -177,6 +178,7 @@ export const updateEquipoInvent = async (req, res) =>{
         .input("id_proveedor_alq", sql.Int, id_proveedor_alq)
         .input("imp_cuota_alq", sql.Decimal, imp_cuota_alq)
         .input("dsc_observaciones", sql.VarChar, dsc_observaciones)
+        .input("dsc_nro_inventario", sql.VarChar, dsc_nro_inventario)
 
 
         .execute("usp_portal_Update_Inventario_Equipos");
