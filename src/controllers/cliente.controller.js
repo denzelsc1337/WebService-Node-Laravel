@@ -1,5 +1,25 @@
 import {getConnection, sql} from '../database/connection.js'
 
+export const loginUsuario = async (req, res) =>{
+    console.log(req.params);
+    const pool = await getConnection();
+
+    const result = await pool
+    .request()
+    .input('doc_usu', sql.VarChar, req.params.doc_usu)
+    .input('dsc_clave', sql.VarChar, req.params.dsc_clave)
+    .execute("usp_portal_Login_Cliente")
+
+    if(result.rowsAffected[0] === 0){
+        return res.status(400).json({
+            message: "usuario no encontrado"
+        })
+    }
+
+    return res.json(result.recordset[0]);
+    // console.log(result);
+}
+
 
 export const getClientes = async (req, res) =>{
     const pool = await getConnection();

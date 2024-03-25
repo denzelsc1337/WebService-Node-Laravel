@@ -9,7 +9,8 @@ import {
     updateCliente,
     bajaCliente,
     selectorClientes,
-    selectorServicios
+    selectorServicios,
+    loginUsuario
 } from "../controllers/cliente.controller.js"
 
 import {
@@ -77,6 +78,8 @@ import {
 } from "../controllers/gestionEquipos.controller.js";
 
 const router = Router();
+//login usuario
+router.get('/Login', loginUsuario );
 
 router.get('/clientes', getClientes );
 router.get('/selectorIndustria', getIndustrias );
