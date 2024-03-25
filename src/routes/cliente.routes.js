@@ -67,6 +67,7 @@ import {
 
 import {
      getEquipos, 
+     getEquiposXcliente, 
      getInfoEquipo, 
      insertEquipoInventario,
      searchEquiposFilter,
@@ -136,6 +137,7 @@ router.get('/Equipo/:id_equipo', getInfoEquipo);
 router.put('/UpdateEquipo', updateEquipoInvent );
 
 router.get('/equipofiltro/:id_client/:id_sucur/:id_usu', searchEquiposFilter );
+router.get('/Equipo/:id_cliente', getEquiposXcliente);
 
 
 

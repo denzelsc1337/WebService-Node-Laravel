@@ -197,6 +197,30 @@ export const updateEquipoInvent = async (req, res) =>{
     }
 }
 
+export const getEquiposXcliente = async (req, res) =>{
+    try {
+        console.log(req.params);
+        const pool = await getConnection();
+    
+        const result = await pool
+        .request()
+        .input('id_client', sql.Int, req.params.id_client)
+        .execute("usp_portal_Listado_Inventario_EquiposXCliente")
+    
+        if(result.rowsAffected[0] === 0){
+            return res.status(400).json({
+                message: "Modelos no encontrados"
+            })
+        }
+        res.json(result.recordset);
+        // console.log(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al encontrar los locales '+error);
+    }
+
+}
+
 
 
 export const selectorMarcaxPeriferico = async (req, res) =>{
@@ -222,6 +246,8 @@ export const selectorMarcaxPeriferico = async (req, res) =>{
     }
 
 }
+
+
 
 
 
