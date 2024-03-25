@@ -248,3 +248,24 @@ export const selectorModeloxMarca = async (req, res) =>{
     }
 
 }
+
+export const searchEquiposFilter = async (req, res) =>{
+    console.log(req.params);
+    const pool = await getConnection();
+
+    const result = await pool
+    .request()
+    .input('id_client', sql.Int, req.params.id_client)
+    .input('id_sucur', sql.Int, req.params.id_sucur)
+    .input('id_usu', sql.Int, req.params.id_usu)
+    .execute("usp_portal_Listado_Inventario_Equipos_filtros")
+
+    if(result.rowsAffected[0] === 0){
+        return res.status(400).json({
+            message: "Equipo no encontrado"
+        })
+    }
+
+    return res.json(result.recordset[0]);
+    // console.log(result);
+}

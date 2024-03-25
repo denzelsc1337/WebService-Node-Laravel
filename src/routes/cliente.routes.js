@@ -69,6 +69,7 @@ import {
      getEquipos, 
      getInfoEquipo, 
      insertEquipoInventario,
+     searchEquiposFilter,
      selectorMarcaxPeriferico,
      selectorModeloxMarca,
      updateEquipoInvent
@@ -133,6 +134,9 @@ router.get('/equiposInventario', getEquipos );
 router.put('/AddEquipo', insertEquipoInventario );
 router.get('/Equipo/:id_equipo', getInfoEquipo);
 router.put('/UpdateEquipo', updateEquipoInvent );
+
+router.get('/equipofiltro/:id_client/:id_sucur/:id_usu', searchEquiposFilter );
+
 
 
 //selectors 
