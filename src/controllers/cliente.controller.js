@@ -10,6 +10,9 @@ export const loginUsuario = async (req, res) =>{
     .input('dsc_clave', sql.VarChar, req.params.dsc_clave)
     .execute("usp_portal_Login_Cliente")
 
+    console.log(result);
+
+    
     if(result.rowsAffected[0] === 0){
         return res.status(400).json({
             message: "usuario no encontrado"
