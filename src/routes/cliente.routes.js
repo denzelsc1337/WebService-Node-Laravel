@@ -137,7 +137,7 @@ router.get('/Equipo/:id_equipo', getInfoEquipo);
 router.put('/UpdateEquipo', updateEquipoInvent );
 
 router.get('/equipofiltro/:id_client/:id_sucur/:id_usu', searchEquiposFilter );
-router.get('/EquipoCliente/:id_cliente', getEquiposXcliente);
+router.get('/EquipoCliente/:id_client', getEquiposXcliente);
 
 
 
