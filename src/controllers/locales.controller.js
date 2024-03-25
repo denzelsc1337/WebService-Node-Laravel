@@ -137,3 +137,27 @@ export const selectorLocalesxCliente = async (req, res) =>{
     }
 
 }
+
+export const selectorUsuarioxLocal= async (req, res) =>{
+    try {
+        console.log(req.params);
+        const pool = await getConnection();
+    
+        const result = await pool
+        .request()
+        .input('id_sucursal ', sql.Int, req.params.id_sucursal )
+        .execute("usp_webcli_selector_UsuarioxLocal")
+    
+        if(result.rowsAffected[0] === 0){
+            return res.status(400).json({
+                message: "usuario no encontrados"
+            })
+        }
+        res.json(result.recordset);
+        // console.log(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al encontrar los usuarios '+error);
+    }
+
+}

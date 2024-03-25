@@ -17,7 +17,8 @@ import {
     updateLocal,
     bajaLocal,
     getInfoLocal,
-    selectorLocalesxCliente
+    selectorLocalesxCliente,
+    selectorUsuarioxLocal
 } from "../controllers/locales.controller.js"
 
 
@@ -138,6 +139,7 @@ router.put('/UpdateEquipo', updateEquipoInvent );
 router.get('/selectorClientes', selectorClientes );
 router.get('/selectorServicios', selectorServicios );
 router.get('/selectorLocalCliente/:id_cliente', selectorLocalesxCliente );
+router.get('/selectorUsuarioLocal/:id_sucursal', selectorUsuarioxLocal );
 router.get('/selectorMarcasXPeriferico/:id_periferico', selectorMarcaxPeriferico );
 router.get('/selectorModeloXMarca/:id_marca', selectorModeloxMarca );
 

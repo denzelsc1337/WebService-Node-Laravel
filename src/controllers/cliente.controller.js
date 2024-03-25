@@ -174,3 +174,8 @@ export const selectorClientes = async (req, res) =>{
     res.json(result.recordset);
 }
 
+
+
+
+
+
