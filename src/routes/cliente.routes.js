@@ -79,7 +79,7 @@ import {
 
 const router = Router();
 //login usuario
-router.get('/Login', loginUsuario );
+router.get('/Login/:doc_usu/:dsc_clave', loginUsuario );
 
 router.get('/clientes', getClientes );
 router.get('/selectorIndustria', getIndustrias );
