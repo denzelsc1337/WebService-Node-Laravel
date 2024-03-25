@@ -145,7 +145,7 @@ export const selectorUsuarioxLocal= async (req, res) =>{
     
         const result = await pool
         .request()
-        .input('id_sucursal ', sql.Int, req.params.id_sucursal )
+        .input('id_sucursal', sql.Int, req.params.id_sucursal )
         .execute("usp_webcli_selector_UsuarioxLocal")
     
         if(result.rowsAffected[0] === 0){
