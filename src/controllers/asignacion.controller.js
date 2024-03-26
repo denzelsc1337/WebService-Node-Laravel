@@ -33,8 +33,8 @@ export const insertEquipoAsignacion = async (req, res) =>{
         .input("id_cliente", sql.Int, id_cliente)
         .input("id_sucursal", sql.Int, id_sucursal)
         .input("id_usuario", sql.Int, id_usuario)
-        .input("fch_ini", sql.VarChar, fch_ini)
-        .input("fch_fin", sql.VarChar, fch_fin)
+        .input("fch_ini", sql.Date, fch_ini)
+        .input("fch_fin", sql.Date, fch_fin)
         .input("obs", sql.VarChar, obs)
         .input("id_tipo_asign", sql.Int, id_tipo_asign)
 
