@@ -28,7 +28,7 @@ export const insertEquipoAsignacion = async (req, res) =>{
         
         // Función para convertir fecha de 'dd/mm/yyyy' a 'yyyy-mm-dd'
         function formatDate(dateString) {
-            const [day, month, year] = dateString.split('/');
+            const [day, month, year] = dateString.split('-');
             return `${year}-${month}-${day}`;
         }
 
