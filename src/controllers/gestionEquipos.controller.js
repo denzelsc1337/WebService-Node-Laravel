@@ -19,8 +19,8 @@ export const getInfoEquipo = async (req, res) =>{
     
         const result = await pool
         .request()
-        .input('id_equipo', sql.Int, req.params.id_equipo)
-        .query("SELECT * FROM de_clientes_equipos WHERE id_equipo = @id_equipo")
+        .input('id_equip', sql.Int, req.params.id_equip)
+        .execute("usp_portal_Listado_Inventario_Equipos_Info")
     
         if(result.rowsAffected[0] === 0){
             return res.status(400).json({
