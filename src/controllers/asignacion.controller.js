@@ -24,6 +24,18 @@ export const insertEquipoAsignacion = async (req, res) =>{
         //     "obs" : "test,
         //     "id_tipo_asign" : 1,
         // }
+        
+        
+        // Función para convertir fecha de 'dd/mm/yyyy' a 'yyyy-mm-dd'
+        function formatDate(dateString) {
+            const [day, month, year] = dateString.split('/');
+            return `${year}-${month}-${day}`;
+        }
+
+        // Convertir fechas al formato esperado por SQL Server
+        const formatted_fch_ini = formatDate(fch_ini);
+        const formatted_fch_fin = formatDate(fch_fin);
+
     
         const pool = await getConnection();
 
@@ -33,8 +45,8 @@ export const insertEquipoAsignacion = async (req, res) =>{
         .input("id_cliente", sql.Int, id_cliente)
         .input("id_sucursal", sql.Int, id_sucursal)
         .input("id_usuario", sql.Int, id_usuario)
-        .input("fch_ini", sql.Date, new Date(fch_ini))
-        .input("fch_fin", sql.Date, new Date(fch_fin))
+        .input("fch_ini", sql.Date, new Date(formatted_fch_ini))
+        .input("fch_fin", sql.Date, new Date(formatted_fch_fin))
         .input("obs", sql.VarChar, obs)
         .input("id_tipo_asign", sql.Int, id_tipo_asign)
 
