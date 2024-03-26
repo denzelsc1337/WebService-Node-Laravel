@@ -33,8 +33,8 @@ export const insertEquipoAsignacion = async (req, res) =>{
         }
 
         // Convertir fechas al formato esperado por SQL Server
-        const formatted_fch_ini = formatDate(fch_ini);
-        const formatted_fch_fin = formatDate(fch_fin);
+        // const formatted_fch_ini = formatDate(fch_ini);
+        // const formatted_fch_fin = formatDate(fch_fin);
 
     
         const pool = await getConnection();
