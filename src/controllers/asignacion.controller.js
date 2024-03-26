@@ -8,8 +8,8 @@ export const insertEquipoAsignacion = async (req, res) =>{
             id_cliente,
             id_sucursal,
             id_usuario, 
-            fch_ini,
-            fch_fin,
+            // fch_ini,
+            // fch_fin,
             obs,
             id_tipo_asign
         } = req.body;
@@ -45,8 +45,8 @@ export const insertEquipoAsignacion = async (req, res) =>{
         .input("id_cliente", sql.Int, id_cliente)
         .input("id_sucursal", sql.Int, id_sucursal)
         .input("id_usuario", sql.Int, id_usuario)
-        .input("fch_ini", sql.Date, new Date(formatted_fch_ini))
-        .input("fch_fin", sql.Date, new Date(formatted_fch_fin))
+        // .input("fch_ini", sql.Date, new Date(formatted_fch_ini))
+        // .input("fch_fin", sql.Date, new Date(formatted_fch_fin))
         .input("obs", sql.VarChar, obs)
         .input("id_tipo_asign", sql.Int, id_tipo_asign)
 
