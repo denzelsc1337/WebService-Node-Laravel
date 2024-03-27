@@ -78,7 +78,7 @@ import {
 } from "../controllers/gestionEquipos.controller.js";
 
 
-import { insertEquipoAsignacion } from "../controllers/asignacion.controller.js";
+import { getAsignaciones, insertEquipoAsignacion } from "../controllers/asignacion.controller.js";
 
 const router = Router();
 //login usuario
@@ -146,6 +146,7 @@ router.get('/equipofiltro/:id_client/:id_sucur/:id_usu', searchEquiposFilter );
 router.get('/EquipoCliente/:id_client', getEquiposXcliente);
 
 router.put('/AddAsignacion', insertEquipoAsignacion );
+router.get('/Asignaciones', getAsignaciones);
 
 
 //selectors 

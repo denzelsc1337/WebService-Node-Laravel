@@ -64,3 +64,14 @@ export const insertEquipoAsignacion = async (req, res) =>{
     }
 
 }
+
+
+export const getAsignaciones = async (req, res) =>{
+    const pool = await getConnection();
+
+    const result = await pool.request()
+    .execute("usp_portal_Listar_Asignar_Equipo");
+
+    console.log(result);
+    res.json(result.recordset);
+}
