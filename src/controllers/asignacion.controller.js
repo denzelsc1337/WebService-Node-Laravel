@@ -66,12 +66,25 @@ export const insertEquipoAsignacion = async (req, res) =>{
 }
 
 
-export const getAsignaciones = async (req, res) =>{
-    const pool = await getConnection();
+export const getInfoEquipo = async (req, res) =>{
+    try {
+        console.log(req.params);
+        const pool = await getConnection();
+    
+        const result = await pool
+        .request()
+        .input('id_equipo', sql.Int, req.params.id_equipo)
+        .execute("usp_portal_Listar_Asignar_Equipo")
+    
+        if(result.rowsAffected[0] === 0){
+            return res.status(400).json({
+                message: "Asignaciones no encontradas"
+            })
+        }
+        return res.json(result.recordset[0]);
+    } catch (error) {
+        console.log(error);
+    }
 
-    const result = await pool.request()
-    .execute("usp_portal_Listar_Asignar_Equipo");
-
-    console.log(result);
-    res.json(result.recordset);
+    // console.log(result);
 }

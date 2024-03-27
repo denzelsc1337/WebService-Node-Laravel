@@ -146,7 +146,7 @@ router.get('/equipofiltro/:id_client/:id_sucur/:id_usu', searchEquiposFilter );
 router.get('/EquipoCliente/:id_client', getEquiposXcliente);
 
 router.put('/AddAsignacion', insertEquipoAsignacion );
-router.get('/Asignaciones', getAsignaciones);
+router.get('/Asignaciones/:id_equipo', getAsignaciones);
 
 
 //selectors 
