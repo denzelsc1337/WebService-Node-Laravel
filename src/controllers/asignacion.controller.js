@@ -84,7 +84,7 @@ export const getAsignaciones = async (req, res) =>{
         res.json(result.recordset);
     } catch (error) {
         console.log(error);
-        res.status(500).send('Error al encontrar los usuarios '+error);
+        res.status(500).send('Error al encontrar los asignaciones '+error);
     }
 
     // console.log(result);
