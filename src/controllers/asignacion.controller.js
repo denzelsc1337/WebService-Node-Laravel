@@ -66,7 +66,7 @@ export const insertEquipoAsignacion = async (req, res) =>{
 }
 
 
-export const getInfoEquipo = async (req, res) =>{
+export const getAsignaciones = async (req, res) =>{
     try {
         console.log(req.params);
         const pool = await getConnection();
