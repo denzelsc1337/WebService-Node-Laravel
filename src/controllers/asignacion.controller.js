@@ -66,6 +66,40 @@ export const insertEquipoAsignacion = async (req, res) =>{
 }
 
 
+export const updateEquipoAsign = async (req, res) =>{
+    // console.log(req.params);
+    const { 
+        fecha_retiro,
+        id_asign,
+        id_equipo,
+    } = req.body;
+
+    try {
+        const pool = await getConnection();
+        const result = await pool
+        .request()
+        .input("fecha_retiro", sql.VarChar, fecha_retiro)
+        .input("id_asign", sql.Int, id_asign)
+        .input("id_equipo", sql.Int, id_equipo)
+
+
+        .execute("usp_portal_Update_Asignacion_Equipo");
+
+
+        console.log(result);
+
+        res.status(200).json({
+            message: 'Fecha de asignacion actualizada',
+            // id_usuario: result.recordset[0].id_usuario
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar equipo');
+    }
+}
+
+
 export const getAsignaciones = async (req, res) =>{
     try {
         console.log(req.params);
