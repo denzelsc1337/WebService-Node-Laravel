@@ -79,7 +79,7 @@ export const updateEquipoAsign = async (req, res) =>{
         const pool = await getConnection();
         const result = await pool
         .request()
-        .input("fecha_retiro", sql.Date, fecha_retiro)
+        .input("fecha_retiro", sql.VarChar, fecha_retiro)
         .input("id_asign", sql.Int, id_asign)
         .input("id_equipo", sql.Int, id_equipo)
 
