@@ -74,6 +74,7 @@ export const updateEquipoAsign = async (req, res) =>{
         id_equipo,
     } = req.body;
 
+    console.log(req.body);
     try {
         const pool = await getConnection();
         const result = await pool
