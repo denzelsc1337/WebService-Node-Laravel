@@ -80,6 +80,8 @@ import {
 
 import { getAsignaciones, insertEquipoAsignacion, updateEquipoAsign } from "../controllers/asignacion.controller.js";
 
+import { getSoftInstalado } from "../controllers/software.controller.js";
+
 const router = Router();
 //login usuario
 router.get('/Login/:doc_usu/:dsc_clave', loginUsuario );
@@ -148,6 +150,9 @@ router.get('/EquipoCliente/:id_client', getEquiposXcliente);
 router.put('/AddAsignacion', insertEquipoAsignacion );
 router.get('/Asignaciones/:id_equipo', getAsignaciones);
 router.put('/UpdateAsignacion', updateEquipoAsign );
+
+//software instalado
+router.get('/SoftwareInstalado/:id_equipo', getSoftInstalado);
 
 
 //selectors 
