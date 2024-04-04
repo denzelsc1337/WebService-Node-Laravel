@@ -89,3 +89,32 @@ export const insertSoftware = async (req, res) =>{
     }
 
 }
+
+
+export const bajaSoftware = async (req, res) =>{
+    try {
+        console.log(req.body);
+        const { 
+            id_soft,
+            id_equip
+        } = req.body;
+    
+        const pool = await getConnection();
+
+        const result = await pool
+        .request()
+        .input("id_soft", sql.Int, id_soft)
+        .input("id_equip", sql.Int, id_equip)
+        .execute("usp_portal_eliminar_soft");
+
+        console.log(result);
+    
+        res.status(200).json({
+            message: 'software desinstalado',
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al desinstalar software '+error);
+    }
+
+}
