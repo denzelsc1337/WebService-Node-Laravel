@@ -49,3 +49,43 @@ export const getSoftInstalado = async (req, res) =>{
 
     // console.log(result);
 }
+
+
+export const insertSoftware = async (req, res) =>{
+
+    const { 
+        id_equipo,
+        id_soft,
+        fch_inst,
+        obs, 
+
+    } = req.body;
+
+    console.log(req.body);
+    try {
+        const pool = await getConnection();
+        const result = await pool
+        .request()
+        .input("id_equipo", sql.Int, id_equipo)
+        .input("id_soft", sql.Int, id_soft)
+        .input("fch_inst", sql.NVarChar, fch_inst)
+        .input("obs", sql.VarChar, obs)
+
+
+
+        .execute("usp_portal_insert_soft_instalado");
+
+
+        console.log(result);
+
+        res.status(200).json({
+            message: 'Software instalado',
+            // id_usuario: result.recordset[0].id_usuario
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al instalar software');
+    }
+
+}
