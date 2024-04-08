@@ -54,10 +54,11 @@ export const getSoftInstalado = async (req, res) =>{
 export const insertSoftware = async (req, res) =>{
 
     const { 
-        id_equipo,
-        id_soft,
-        fch_inst,
-        obs, 
+        // id_equipo,
+        // id_soft,
+        // fch_inst,
+        // obs, 
+        dsc_cadena
 
     } = req.body;
 
@@ -66,10 +67,10 @@ export const insertSoftware = async (req, res) =>{
         const pool = await getConnection();
         const result = await pool
         .request()
-        .input("id_equipo", sql.Int, id_equipo)
-        .input("id_soft", sql.Int, id_soft)
-        .input("fch_inst", sql.NVarChar, fch_inst)
-        .input("obs", sql.VarChar, obs)
+        // .input("id_equipo", sql.Int, id_equipo)
+        // .input("id_soft", sql.Int, id_soft)
+        // .input("fch_inst", sql.NVarChar, fch_inst)
+        .input("dsc_cadena", sql.VarChar, dsc_cadena)
 
 
 
