@@ -42,7 +42,7 @@ export const insertEquipoInventario = async (req, res) =>{
         console.log(req.body);
         
         const { 
-            id_equipo,
+            id_cliente,
             id_estado_eqp,
             id_periferico, 
             id_marca,
@@ -69,7 +69,7 @@ export const insertEquipoInventario = async (req, res) =>{
 
         const result = await pool
         .request()
-        .input("id_equipo", sql.Int, id_equipo)
+        .input("id_cliente", sql.Int, id_cliente)
         .input("id_estado_eqp", sql.Int, id_estado_eqp)
         .input("id_periferico", sql.Int, id_periferico)
         .input("id_marca", sql.Int, id_marca)
@@ -91,7 +91,7 @@ export const insertEquipoInventario = async (req, res) =>{
         .input("dsc_observaciones", sql.VarChar, dsc_observaciones)
 
         
-        .execute("usp_portal_Update_Inventario_Equipos");
+        .execute("usp_portal_Insert_Inventario_Equipos");
 
         console.log(result);
     
