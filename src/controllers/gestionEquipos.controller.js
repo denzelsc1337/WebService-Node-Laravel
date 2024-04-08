@@ -40,30 +40,7 @@ export const getInfoEquipo = async (req, res) =>{
 export const insertEquipoInventario = async (req, res) =>{
     try {
         console.log(req.body);
-
-
-        // Array para almacenar mensajes de error
-        const errors = [];
-
-        // Verificar campos obligatorios
-        const requiredFields = [
-            { field: "id_periferico", message: "El campo periferico es obligatorio" },
-            // Agregar aquí otros campos obligatorios
-        ];
-
-        requiredFields.forEach(({ field, message }) => {
-            if (!req.body[field]) {
-                errors.push(message);
-            }
-        });
-
-        // Si hay errores, devolver respuesta con los mensajes de error
-        if (errors.length > 0) {
-            return res.status(400).json({ errors });
-        }
-
-
-
+        
         const { 
             id_equipo,
             id_estado_eqp,
