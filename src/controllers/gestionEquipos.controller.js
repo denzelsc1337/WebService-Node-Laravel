@@ -40,6 +40,30 @@ export const getInfoEquipo = async (req, res) =>{
 export const insertEquipoInventario = async (req, res) =>{
     try {
         console.log(req.body);
+
+
+        // Array para almacenar mensajes de error
+        const errors = [];
+
+        // Verificar campos obligatorios
+        const requiredFields = [
+            { field: "id_periferico", message: "El campo periferico es obligatorio" },
+            // Agregar aquí otros campos obligatorios
+        ];
+
+        requiredFields.forEach(({ field, message }) => {
+            if (!req.body[field]) {
+                errors.push(message);
+            }
+        });
+
+        // Si hay errores, devolver respuesta con los mensajes de error
+        if (errors.length > 0) {
+            return res.status(400).json({ errors });
+        }
+
+
+
         const { 
             id_equipo,
             id_estado_eqp,
@@ -63,28 +87,6 @@ export const insertEquipoInventario = async (req, res) =>{
             dsc_observaciones
         } = req.body;
 
-        // {
-        //     "id_equipo":  1,
-        //     "id_estado_eqp": 1,
-        //     "id_periferico" : 1,
-        //     "id_marca" : 1,
-        //     "id_modelo" : 1,
-        //     "dsc_equipo" : "test", 
-        //     "dsc_nro_serie" : "LN-00",
-        //     "dsc_cod_activo" : "LN-00",
-        //     "id_procesador" : 1 , 
-        //     "vel_procesador" : 9, 
-        //     "ctd_memoria" : 1, 
-        //     "ctd_disco_duro" : 2,
-        //     "ctd_tamaño_pantalla" :190 ,
-        //     "dsc_tipo_propiedad" : "Alquilado", 
-        //     "id_proveedor_compra" : 1, 
-        //     "imp_compra" : 90, 
-        //     "dsc_contrato_alq" : "test alq", 
-        //     "id_proveedor_alq" : 1, 
-        //     "imp_cuota_alq" : 90,
-        //     "dsc_observaciones" : "test obs" 
-        // }
     
         const pool = await getConnection();
 
