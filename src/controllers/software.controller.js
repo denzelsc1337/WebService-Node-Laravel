@@ -96,16 +96,19 @@ export const bajaSoftware = async (req, res) =>{
     try {
         console.log(req.body);
         const { 
-            id_soft,
-            id_equip
+            // id_soft,
+            // id_equip
+            dsc_cadena
+
         } = req.body;
     
         const pool = await getConnection();
 
         const result = await pool
         .request()
-        .input("id_soft", sql.Int, id_soft)
-        .input("id_equip", sql.Int, id_equip)
+        // .input("id_soft", sql.Int, id_soft)
+        // .input("id_equip", sql.Int, id_equip)
+        .input("dsc_cadena", sql.VarChar, dsc_cadena)
         .execute("usp_portal_eliminar_soft");
 
         console.log(result);
