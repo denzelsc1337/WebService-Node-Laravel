@@ -81,7 +81,7 @@ import {
 
 import { getAsignaciones, insertEquipoAsignacion, updateEquipoAsign } from "../controllers/asignacion.controller.js";
 
-import { bajaSoftware, getSoftInstalado, getSoftware, insertSoftware } from "../controllers/software.controller.js";
+import { bajaSoftware, getSoftInstalado, getSoftware, insertSoftware, selectorCategSoft } from "../controllers/software.controller.js";
 
 const router = Router();
 //login usuario
@@ -163,6 +163,7 @@ router.delete('/DeleteSoftware', bajaSoftware );
 router.get('/selectorClientes', selectorClientes );
 router.get('/selectorEstados', selectorEstados );
 router.get('/selectorServicios', selectorServicios );
+router.get('/selectorCategSoftware', selectorCategSoft );
 router.get('/selectorLocalCliente/:id_cliente', selectorLocalesxCliente );
 router.get('/selectorUsuarioLocal/:id_sucursal', selectorUsuarioxLocal );
 router.get('/selectorMarcasXPeriferico/:id_periferico', selectorMarcaxPeriferico );

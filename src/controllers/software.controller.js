@@ -122,3 +122,14 @@ export const bajaSoftware = async (req, res) =>{
     }
 
 }
+
+
+export const selectorCategSoft = async (req, res) =>{
+    const pool = await getConnection();
+
+    const result = await pool.request()
+    .query("SELECT * FROM ma_categoria_software");
+
+    console.log(result);
+    res.json(result.recordset);
+}
