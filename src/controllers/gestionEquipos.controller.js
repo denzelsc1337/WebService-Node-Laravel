@@ -295,3 +295,15 @@ export const searchEquiposFilter = async (req, res) =>{
     return res.json(result.recordset[0]);
     // console.log(result);
 }
+
+
+
+export const selectorEstados = async (req, res) =>{
+    const pool = await getConnection();
+
+    const result = await pool.request()
+    .query("select * from ma_estado_equipos");
+
+    console.log(result);
+    res.json(result.recordset);
+}

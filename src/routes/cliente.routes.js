@@ -72,6 +72,7 @@ import {
      getInfoEquipo, 
      insertEquipoInventario,
      searchEquiposFilter,
+     selectorEstados,
      selectorMarcaxPeriferico,
      selectorModeloxMarca,
      updateEquipoInvent
@@ -160,6 +161,7 @@ router.delete('/DeleteSoftware', bajaSoftware );
 
 //selectors 
 router.get('/selectorClientes', selectorClientes );
+router.get('/selectorEstados', selectorEstados );
 router.get('/selectorServicios', selectorServicios );
 router.get('/selectorLocalCliente/:id_cliente', selectorLocalesxCliente );
 router.get('/selectorUsuarioLocal/:id_sucursal', selectorUsuarioxLocal );
