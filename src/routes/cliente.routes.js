@@ -82,6 +82,7 @@ import {
 import { getAsignaciones, insertEquipoAsignacion, updateEquipoAsign } from "../controllers/asignacion.controller.js";
 
 import { bajaSoftware, createSoftware, getSoftInstalado, getSoftware, insertSoftware, selectorCategSoft } from "../controllers/software.controller.js";
+import { createIncidencia } from "../controllers/IncidenciasController.js";
 
 const router = Router();
 //login usuario
@@ -159,6 +160,9 @@ router.put('/AddSoftware', insertSoftware );
 router.put('/CreateSoftware', createSoftware );
 router.delete('/DeleteSoftware', bajaSoftware );
 
+
+//incidencias
+router.put('/AddIncidencia', createIncidencia );
 
 //selectors 
 router.get('/selectorClientes', selectorClientes );
