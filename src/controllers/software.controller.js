@@ -54,6 +54,7 @@ export const getSoftInstalado = async (req, res) =>{
 export const createSoftware = async (req, res) =>{
 
     const { 
+        dsc_soft,
         cod_cate_soft,
         cod_fabri_soft,
         dsc_version,
@@ -65,10 +66,11 @@ export const createSoftware = async (req, res) =>{
         const pool = await getConnection();
         const result = await pool
         .request()
+        .input("dsc_soft", sql.VarChar, dsc_soft)
         .input("cod_cate_soft", sql.Int, cod_cate_soft)
         .input("cod_fabri_soft", sql.Int, cod_fabri_soft)
-        .input("dsc_version", sql.NVarChar, dsc_version)
-        .input("lic", sql.NVarChar, lic)
+        .input("dsc_version", sql.VarChar, dsc_version)
+        .input("lic", sql.Char, lic)
 
         .execute("usp_portal_insert_soft");
 
