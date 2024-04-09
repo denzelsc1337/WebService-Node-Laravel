@@ -51,6 +51,42 @@ export const getSoftInstalado = async (req, res) =>{
 }
 
 
+export const createSoftware = async (req, res) =>{
+
+    const { 
+        cod_cate_soft,
+        cod_fabri_soft,
+        dsc_version,
+        lic
+    } = req.body;
+
+    console.log(req.body);
+    try {
+        const pool = await getConnection();
+        const result = await pool
+        .request()
+        .input("cod_cate_soft", sql.Int, cod_cate_soft)
+        .input("cod_fabri_soft", sql.Int, cod_fabri_soft)
+        .input("dsc_version", sql.NVarChar, dsc_version)
+        .input("lic", sql.NVarChar, lic)
+
+        .execute("usp_portal_insert_soft");
+
+        console.log(result);
+
+        res.status(200).json({
+            message: 'Software creado',
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al crear software: ' + error.message);
+    }
+
+}
+
+
+
 export const insertSoftware = async (req, res) =>{
 
     const { 

@@ -81,7 +81,7 @@ import {
 
 import { getAsignaciones, insertEquipoAsignacion, updateEquipoAsign } from "../controllers/asignacion.controller.js";
 
-import { bajaSoftware, getSoftInstalado, getSoftware, insertSoftware, selectorCategSoft } from "../controllers/software.controller.js";
+import { bajaSoftware, createSoftware, getSoftInstalado, getSoftware, insertSoftware, selectorCategSoft } from "../controllers/software.controller.js";
 
 const router = Router();
 //login usuario
@@ -156,6 +156,7 @@ router.put('/UpdateAsignacion', updateEquipoAsign );
 router.get('/SoftwareInstalado/:id_equipo', getSoftInstalado);
 router.get('/Software', getSoftware);
 router.put('/AddSoftware', insertSoftware );
+router.put('/CreateSoftware', createSoftware );
 router.delete('/DeleteSoftware', bajaSoftware );
 
 
