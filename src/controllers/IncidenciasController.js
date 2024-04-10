@@ -6,13 +6,11 @@ export const createIncidencia = async (req, res) =>{
 
     const { 
         fch_incidente,
-        cod_estado_inc,
         cod_client,
         cod_sucur,
         cod_usu,
         cod_tipo_inci,
         dsc_detalle,
-        lic
     } = req.body;
 
     console.log(req.body);
@@ -21,7 +19,6 @@ export const createIncidencia = async (req, res) =>{
         const result = await pool
         .request()
         .input("fch_incidente", sql.NVarChar, fch_incidente)
-        .input("cod_estado_inc", sql.Int, cod_estado_inc)
         .input("cod_client", sql.Int, cod_client)
         .input("cod_sucur", sql.Int, cod_sucur)
         .input("cod_usu", sql.Int, cod_usu)
