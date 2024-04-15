@@ -39,3 +39,13 @@ export const createIncidencia = async (req, res) =>{
     }
 
 }
+
+export const getTipoIncidencia = async (req, res) =>{
+    const pool = await getConnection();
+
+    const result = await pool.request().query("select * from ma_tipo_incidente");
+
+    console.log(result);
+    
+    res.json(result.recordset);
+}
