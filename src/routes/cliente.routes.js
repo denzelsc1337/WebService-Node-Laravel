@@ -82,7 +82,7 @@ import {
 import { getAsignaciones, insertEquipoAsignacion, updateEquipoAsign } from "../controllers/asignacion.controller.js";
 
 import { bajaSoftware, createSoftware, getSoftInstalado, getSoftware, insertSoftware, selectorCategSoft } from "../controllers/software.controller.js";
-import { createIncidencia, getIncidencias, getTipoIncidencia } from "../controllers/IncidenciasController.js";
+import { createIncidencia, getIncidencias, getIncidenciasXestado, getTipoIncidencia } from "../controllers/IncidenciasController.js";
 
 const router = Router();
 //login usuario
