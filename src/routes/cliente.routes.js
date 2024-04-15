@@ -164,7 +164,8 @@ router.delete('/DeleteSoftware', bajaSoftware );
 //incidencias
 router.put('/AddIncidencia', createIncidencia );
 router.get('/TipoIncidente', getTipoIncidencia );
-router.get('/Incidencias/:estado', getIncidencias );
+router.get('/Incidencias', getIncidencias );
+router.get('/IncidenciasEstado/:estado', getIncidenciasXestado );
 
 //selectors 
 router.get('/selectorClientes', selectorClientes );
