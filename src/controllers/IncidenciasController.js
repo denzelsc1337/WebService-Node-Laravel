@@ -99,3 +99,27 @@ export const getIncidenciasXestado = async (req, res) =>{
 
     // console.log(result);
 }
+
+
+export const getCountIncidencias = async (req, res) =>{
+    try {
+        console.log(req.params);
+        const pool = await getConnection();
+    
+        const result = await pool
+        .request()
+        .execute("usp_portal_count_estados_incidencias")
+    
+        if(result.rowsAffected[0] === 0){
+            return res.status(400).json({
+                message: "Incidencias no encontradas"
+            })
+        }
+        res.json(result.recordset);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error al encontrar Incidencias '+error);
+    }
+
+    // console.log(result);
+}
