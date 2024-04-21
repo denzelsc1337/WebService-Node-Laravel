@@ -74,6 +74,7 @@ export const insertCliente = async (req, res) =>{
         const { 
             dsc_nom_razon, 
             dsc_nom_comer, 
+            calif, 
             dsc_tipo_id, 
             cod_ind, 
             fch_ing, 
@@ -87,6 +88,7 @@ export const insertCliente = async (req, res) =>{
         .request()
         .input("dsc_nom_razon", sql.VarChar, dsc_nom_razon)
         .input("dsc_nom_comer", sql.VarChar, dsc_nom_comer)
+        .input("calif", sql.Int, calif)
         .input("dsc_tipo_id", sql.VarChar, dsc_tipo_id)
         .input("cod_ind", sql.Int, cod_ind)
         .input("fch_ing", sql.Date, fch_ing)
