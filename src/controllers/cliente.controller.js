@@ -80,7 +80,8 @@ export const insertCliente = async (req, res) =>{
             cod_ind, 
             fch_ing, 
             usu_reg,
-            usu_mod 
+            usu_mod,
+            flg_act
         } = req.body;
     
         const pool = await getConnection();
@@ -96,6 +97,7 @@ export const insertCliente = async (req, res) =>{
         .input("fch_ing", sql.Date, fch_ing)
         .input("usu_reg", sql.Int, usu_reg)
         .input("usu_mod", sql.Int, usu_mod)
+        .input("flg_act", sql.Char, flg_act)
     
         .execute("usp_webcli_InsertCliente");
 
