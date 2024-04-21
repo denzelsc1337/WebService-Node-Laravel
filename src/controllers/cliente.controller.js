@@ -125,7 +125,7 @@ export const updateCliente = async (req, res) =>{
         .input('dsc_nom_razon', sql.VarChar, dsc_nom_razon)
         .input('dsc_nom_comer', sql.VarChar, dsc_nom_comer)
         .input("calif", sql.Int, calif)
-        .input("logo", sql.Int, logo)
+        .input("logo", sql.VarChar, logo)
 
         // .input('tipoServ', sql.Int, cod_servc)
         .input('num_ruc', sql.VarChar, num_ruc)
