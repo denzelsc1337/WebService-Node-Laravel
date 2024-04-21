@@ -113,7 +113,7 @@ export const insertCliente = async (req, res) =>{
 export const updateCliente = async (req, res) =>{
     // console.log(req.params);
     // const {id_cli, dsc_nom_razon, dsc_nom_comer, cod_servc, num_ruc , fch_ing, cod_ind} = req.body;
-    const {id_cli, dsc_nom_razon, dsc_nom_comer, num_ruc , fch_ing, cod_ind} = req.body;
+    const {id_cli, dsc_nom_razon, dsc_nom_comer,calif, num_ruc , fch_ing, cod_ind} = req.body;
 
     try {
         const pool = await getConnection();
@@ -122,6 +122,8 @@ export const updateCliente = async (req, res) =>{
         .input('id_cli', sql.Int, id_cli)
         .input('dsc_nom_razon', sql.VarChar, dsc_nom_razon)
         .input('dsc_nom_comer', sql.VarChar, dsc_nom_comer)
+        .input("calif", sql.Int, calif)
+
         // .input('tipoServ', sql.Int, cod_servc)
         .input('num_ruc', sql.VarChar, num_ruc)
         .input('fch_ing', sql.Date, fch_ing)
