@@ -117,7 +117,7 @@ export const insertCliente = async (req, res) =>{
 export const updateCliente = async (req, res) =>{
     // console.log(req.params);
     // const {id_cli, dsc_nom_razon, dsc_nom_comer, cod_servc, num_ruc , fch_ing, cod_ind} = req.body;
-    const {id_cli, dsc_nom_razon, dsc_nom_comer,calif, logo, num_ruc , fch_ing, cod_ind} = req.body;
+    const {id_cli, dsc_nom_razon, dsc_nom_comer,calif, logo, num_ruc , fch_ing, cod_ind,flg_act} = req.body;
 
     try {
         const pool = await getConnection();
@@ -133,6 +133,8 @@ export const updateCliente = async (req, res) =>{
         .input('num_ruc', sql.VarChar, num_ruc)
         .input('fch_ing', sql.Date, fch_ing)
         .input('cod_ind', sql.VarChar, cod_ind)
+        .input("flg_act", sql.Char, flg_act)
+
 
         .execute("usp_portal_Update_Cliente");
 
