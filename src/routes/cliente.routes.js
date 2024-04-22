@@ -126,7 +126,7 @@ router.get('/Marca/:id_marca', getInfoMarca );
 router.put('/AddMarca', insertMarca );
 router.put('/updateMarca', updateMarca );
 router.delete('/DeleteMarca', bajaMarca );
-router.delete('/ChangeSoftware', changeSoftware );
+router.put('/ChangeSoftware', changeSoftware );
 
 
 //crud modelos
