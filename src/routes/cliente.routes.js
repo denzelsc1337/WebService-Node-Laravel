@@ -46,7 +46,8 @@ import{
     insertMarca,
     updateMarca,
     bajaMarca,
-    changeSoftware
+    changeSoftware,
+    changeHardware
 }from "../controllers/marcas.controller.js"
 
 
@@ -127,6 +128,7 @@ router.put('/AddMarca', insertMarca );
 router.put('/updateMarca', updateMarca );
 router.delete('/DeleteMarca', bajaMarca );
 router.put('/ChangeSoftware', changeSoftware );
+router.put('/ChangeHardware', changeHardware );
 
 
 //crud modelos
