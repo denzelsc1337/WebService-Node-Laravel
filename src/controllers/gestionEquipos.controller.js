@@ -61,22 +61,12 @@ export const insertEquipoInventario = async (req, res) =>{
             dsc_contrato_alq,
             id_proveedor_alq,
             imp_cuota_alq ,
-            dsc_observaciones
+            dsc_observaciones,
+            fch_compra,
+            fch_venc
         } = req.body;
 
-
-        
-        const errors = {};
-
-        if (!id_cliente) {
-            errors.client_cod_invt_add = ['Debe seleccionar un cliente'];
-        }
-
-        // Verificar si hay errores
-        if (Object.keys(errors).length > 0) {
-            return res.status(400).json({ data: errors });
-        }
-        
+    
         const pool = await getConnection();
 
         const result = await pool
@@ -101,6 +91,9 @@ export const insertEquipoInventario = async (req, res) =>{
         .input("id_proveedor_alq", sql.Int, id_proveedor_alq)
         .input("imp_cuota_alq", sql.Decimal, imp_cuota_alq)
         .input("dsc_observaciones", sql.VarChar, dsc_observaciones)
+
+        .input("fch_compra", sql.NVarChar, fch_compra)
+        .input("fch_venc", sql.NVarChar, fch_venc)
 
         
         .execute("usp_portal_Insert_Inventario_Equipos");
