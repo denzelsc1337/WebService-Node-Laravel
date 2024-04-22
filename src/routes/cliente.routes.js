@@ -75,6 +75,7 @@ import {
      selectorEstados,
      selectorMarcaxPeriferico,
      selectorModeloxMarca,
+     selectorProveedores,
      updateEquipoInvent
 } from "../controllers/gestionEquipos.controller.js";
 
@@ -171,6 +172,7 @@ router.get('/ConteoIncidencias', getCountIncidencias );
 //selectors 
 router.get('/selectorClientes', selectorClientes );
 router.get('/selectorEstados', selectorEstados );
+router.get('/selectorProveedores', selectorProveedores );
 router.get('/selectorServicios', selectorServicios );
 router.get('/selectorCategSoftware', selectorCategSoft );
 router.get('/selectorLocalCliente/:id_cliente', selectorLocalesxCliente );

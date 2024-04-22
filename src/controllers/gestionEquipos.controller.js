@@ -295,3 +295,14 @@ export const selectorEstados = async (req, res) =>{
     console.log(result);
     res.json(result.recordset);
 }
+
+
+export const selectorProveedores = async (req, res) =>{
+    const pool = await getConnection();
+
+    const result = await pool.request()
+    .query("select * from ma_proveedores");
+
+    console.log(result);
+    res.json(result.recordset);
+}
