@@ -63,7 +63,9 @@ export const insertEquipoInventario = async (req, res) =>{
             imp_cuota_alq ,
             dsc_observaciones,
             fch_compra,
-            fch_venc
+            fch_venc,
+
+            id_usu_reg
         } = req.body;
 
     
@@ -94,6 +96,8 @@ export const insertEquipoInventario = async (req, res) =>{
 
         .input("fch_compra", sql.NVarChar, fch_compra)
         .input("fch_venc", sql.NVarChar, fch_venc)
+
+        .input("id_usu_reg", sql.Int, id_usu_reg)
 
         
         .execute("usp_portal_Insert_Inventario_Equipos");
