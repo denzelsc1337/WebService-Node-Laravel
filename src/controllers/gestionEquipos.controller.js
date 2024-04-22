@@ -64,7 +64,19 @@ export const insertEquipoInventario = async (req, res) =>{
             dsc_observaciones
         } = req.body;
 
-    
+
+        
+        const errors = {};
+
+        if (!id_cliente) {
+            errors.client_cod_invt_add = ['Debe seleccionar un cliente'];
+        }
+
+        // Verificar si hay errores
+        if (Object.keys(errors).length > 0) {
+            return res.status(400).json({ data: errors });
+        }
+        
         const pool = await getConnection();
 
         const result = await pool

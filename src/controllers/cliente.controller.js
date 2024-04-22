@@ -83,6 +83,7 @@ export const insertCliente = async (req, res) =>{
             usu_mod,
             flg_act
         } = req.body;
+
     
         const pool = await getConnection();
 
