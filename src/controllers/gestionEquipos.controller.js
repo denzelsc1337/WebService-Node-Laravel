@@ -289,8 +289,7 @@ export const searchEquiposFilter = async (req, res) =>{
             message: "Equipo no encontrado"
         })
     }
-
-    return res.json(result.recordset[0]);
+    res.json(result.recordset);
     // console.log(result);
 }
 
