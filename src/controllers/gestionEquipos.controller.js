@@ -282,6 +282,7 @@ export const searchEquiposFilter = async (req, res) =>{
     .input('id_client', sql.Int, req.params.id_client)
     .input('id_sucur', sql.Int, req.params.id_sucur)
     .input('id_usu', sql.Int, req.params.id_usu)
+    .input('id_estado', sql.Int, req.params.id_estado)
     .execute("usp_portal_Listado_Inventario_Equipos_filtros")
 
     if(result.rowsAffected[0] === 0){

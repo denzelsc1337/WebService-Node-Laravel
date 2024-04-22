@@ -147,7 +147,7 @@ router.put('/AddEquipo', insertEquipoInventario );
 router.get('/Equipo/:id_equip', getInfoEquipo);
 router.put('/UpdateEquipo', updateEquipoInvent );
 
-router.get('/equipofiltro/:id_client/:id_sucur/:id_usu', searchEquiposFilter );
+router.get('/equipofiltro/:id_client/:id_sucur/:id_usu/:id_estado', searchEquiposFilter );
 router.get('/EquipoCliente/:id_client', getEquiposXcliente);
 
 router.put('/AddAsignacion', insertEquipoAsignacion );
