@@ -119,3 +119,30 @@ export const bajaMarca = async (req, res) =>{
     }
 
 }
+
+
+export const changeSoftware = async (req, res) =>{
+    try {
+        console.log(req.body);
+        const { 
+            id_marca
+        } = req.body;
+    
+        const pool = await getConnection();
+
+        const result = await pool
+        .request()
+        .input("id_marca", sql.Int, id_marca)
+        .execute("usp_portal_cambiar_software");
+
+        console.log(result);
+    
+        res.status(200).json({
+            message: 'estado de marca actualizado',
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al dar de baja marca '+error);
+    }
+
+}
