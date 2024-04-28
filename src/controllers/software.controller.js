@@ -108,6 +108,44 @@ export const getInfoSoftware = async (req, res) =>{
 }
 
 
+export const updateSoftware_mant = async (req, res) =>{
+    // console.log(req.params);
+    const { 
+        id_soft,
+        id_cate, 
+        id_fab,
+        dsc_soft,
+        dsc_vers,
+        flg_lic,
+    } = req.body;
+
+    try {
+        const pool = await getConnection();
+        const result = await pool
+        .request()
+        .input("id_soft", sql.Int, id_soft)
+        .input("id_cate", sql.Int, id_cate)
+        .input("id_fab", sql.Int, id_fab)
+        .input("dsc_soft", sql.VarChar, dsc_soft)
+        .input("dsc_vers", sql.VarChar, dsc_vers)
+        .input("flg_lic", sql.VarChar, flg_lic)
+
+    
+        .execute("usp_portal_Update_Software");
+
+
+        console.log(result);
+
+        res.status(200).json({
+            message: 'software Actualizado',
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar una localidad');
+    }
+}
+
 
 export const insertSoftware = async (req, res) =>{
 
