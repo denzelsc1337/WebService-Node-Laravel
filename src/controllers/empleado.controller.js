@@ -47,8 +47,6 @@ export const insertEmpleado = async (req, res) =>{
         .input("id_usu_reg", sql.Int, id_usu_reg)
 
 
-
-    
         .execute("usp_portal_Insert_Empleados");
 
         console.log(result);
@@ -58,7 +56,7 @@ export const insertEmpleado = async (req, res) =>{
         });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Error al crear un local');
+        res.status(500).send('Error al crear un local' + error);
     }
 
 }
