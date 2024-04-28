@@ -56,7 +56,10 @@ export const insertEmpleado = async (req, res) =>{
         });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Error al crear un local' + error);
+        res.status(500).json({
+            message: 'Error al crear un empleado',
+            error: error.message // Envía el mensaje de error al cliente
+        });
     }
 
 }
