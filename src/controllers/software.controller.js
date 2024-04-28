@@ -88,6 +88,26 @@ export const createSoftware = async (req, res) =>{
 }
 
 
+export const getInfoSoftware = async (req, res) =>{
+    console.log(req.params);
+    const pool = await getConnection();
+
+    const result = await pool
+    .request()
+    .input('id_soft', sql.Int, req.params.id_soft)
+    .execute("usp_portal_Info_Software")
+
+    if(result.rowsAffected[0] === 0){
+        return res.status(400).json({
+            message: "Software no encontrado"
+        })
+    }
+
+    return res.json(result.recordset[0]);
+    // console.log(result);
+}
+
+
 
 export const insertSoftware = async (req, res) =>{
 

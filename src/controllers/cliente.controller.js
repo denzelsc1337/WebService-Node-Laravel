@@ -18,7 +18,6 @@ export const loginUsuario = async (req, res) =>{
             message: "usuario no encontrado"
         })
     }
-
     return res.json(result.recordset[0]);
     // console.log(result);
 }
