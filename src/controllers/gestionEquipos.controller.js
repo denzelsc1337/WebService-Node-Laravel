@@ -68,7 +68,6 @@ export const insertEquipoInventario = async (req, res) =>{
             id_usu_reg
         } = req.body;
 
-    
         const pool = await getConnection();
 
         const result = await pool

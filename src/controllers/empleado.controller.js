@@ -14,7 +14,12 @@ export const insertEmpleado = async (req, res) =>{
             mail,
             cargo,
             area,
-            direccion
+            direccion,
+            flg_act,
+            flg_tec,
+            flg_com,
+            flg_log
+            
         } = req.body;
     
         const pool = await getConnection();
@@ -32,6 +37,14 @@ export const insertEmpleado = async (req, res) =>{
         .input("cargo", sql.VarChar, cargo)
         .input("area", sql.VarChar, area)
         .input("direccion", sql.VarChar, direccion)
+
+        .input("flg_act", sql.Char, flg_act)
+        .input("flg_tec", sql.Char, flg_tec)
+        .input("flg_com", sql.Char, flg_com)
+        .input("flg_log", sql.Char, flg_log)
+
+
+
 
     
         .execute("usp_portal_Insert_Empleados");
