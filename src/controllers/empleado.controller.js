@@ -18,7 +18,8 @@ export const insertEmpleado = async (req, res) =>{
             flg_act,
             flg_tec,
             flg_com,
-            flg_log
+            flg_log,
+            id_usu_reg
             
         } = req.body;
     
