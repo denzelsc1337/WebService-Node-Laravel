@@ -177,7 +177,7 @@ export const getInfoEmpleado = async (req, res) =>{
 }
 
 
-export const getRolesxCliente = async () => {
+export const getRolesxCliente = async (req, res) => {
     try {
         console.log(req.params);
         const pool = await getConnection();
