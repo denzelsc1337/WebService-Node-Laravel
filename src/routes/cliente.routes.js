@@ -114,7 +114,7 @@ router.get('/Empleado/:id_empl', getInfoEmpleado );
 router.put('/AddEmpleado', insertEmpleado );
 router.put('/updateEmpleado', updateEmpleado );
 router.delete('/DeleteEmpleado', bajaEmpleado );
-router.delete('/Roles', getRolesxCliente );
+router.get('/Roles/:as_flg_kunaq', getRolesxCliente );
 
 //crud periferico
 
