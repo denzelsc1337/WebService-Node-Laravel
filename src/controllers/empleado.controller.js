@@ -184,7 +184,7 @@ export const getRolesxCliente = async () => {
     
         const result = await pool
         .request()
-        .input('as_flg_kunaq', sql.Int, req.params.as_flg_kunaq)
+        .input('as_flg_kunaq', sql.Char, req.params.as_flg_kunaq)
         .execute("usp_portal_roles_flg")
     
         if(result.rowsAffected[0] === 0){
