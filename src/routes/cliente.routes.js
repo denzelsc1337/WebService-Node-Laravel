@@ -28,7 +28,8 @@ import {
     getInfoEmpleado,
     insertEmpleado,
     updateEmpleado,
-    bajaEmpleado
+    bajaEmpleado,
+    getRolesxCliente
 } from "../controllers/empleado.controller.js"
 
 
@@ -113,6 +114,7 @@ router.get('/Empleado/:id_empl', getInfoEmpleado );
 router.put('/AddEmpleado', insertEmpleado );
 router.put('/updateEmpleado', updateEmpleado );
 router.delete('/DeleteEmpleado', bajaEmpleado );
+router.delete('/Roles', getRolesxCliente );
 
 //crud periferico
 

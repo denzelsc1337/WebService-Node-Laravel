@@ -175,3 +175,28 @@ export const getInfoEmpleado = async (req, res) =>{
     return res.json(result.recordset[0]);
     // console.log(result);
 }
+
+
+export const getRolesxCliente = async () => {
+    try {
+        console.log(req.params);
+        const pool = await getConnection();
+    
+        const result = await pool
+        .request()
+        .input('as_flg_kunaq', sql.Int, req.params.as_flg_kunaq)
+        .execute("usp_portal_roles_flg")
+    
+        if(result.rowsAffected[0] === 0){
+            return res.status(400).json({
+                message: "roles no encontrados"
+            })
+        }
+        res.json(result.recordset);
+        // console.log(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al encontrar los locales '+error);
+    }
+
+}
