@@ -19,7 +19,8 @@ export const insertEmpleado = async (req, res) =>{
             flg_tec,
             flg_com,
             flg_log,
-            id_usu_reg
+            id_usu_reg, 
+            id_rol
             
         } = req.body;
     
@@ -45,6 +46,7 @@ export const insertEmpleado = async (req, res) =>{
         .input("flg_log", sql.Char, flg_log)
 
         .input("id_usu_reg", sql.Int, id_usu_reg)
+        .input("id_rol", sql.Int, id_rol)
 
 
         .execute("usp_portal_Insert_Empleados");
