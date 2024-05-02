@@ -82,7 +82,8 @@ export const updateEmpleado = async (req, res) =>{
         mail,
         cargo,
         area,
-        direccion
+        direccion,
+        cod_rol
     } = req.body;
 
     try {
@@ -101,6 +102,7 @@ export const updateEmpleado = async (req, res) =>{
         .input("cargo", sql.VarChar, cargo)
         .input("area", sql.VarChar, area)
         .input("direccion", sql.VarChar, direccion)
+        .input("cod_rol", sql.Int, cod_rol)
 
     
         .execute("usp_portal_Update_Empleado");
