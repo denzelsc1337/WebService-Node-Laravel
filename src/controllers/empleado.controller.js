@@ -83,6 +83,10 @@ export const updateEmpleado = async (req, res) =>{
         cargo,
         area,
         direccion,
+        flg_act,
+        flg_tec,
+        flg_com,
+        flg_log,
         cod_rol
     } = req.body;
 
@@ -102,6 +106,12 @@ export const updateEmpleado = async (req, res) =>{
         .input("cargo", sql.VarChar, cargo)
         .input("area", sql.VarChar, area)
         .input("direccion", sql.VarChar, direccion)
+
+        .input("flg_act", sql.Char, flg_act)
+        .input("flg_tec", sql.Char, flg_tec)
+        .input("flg_com", sql.Char, flg_com)
+        .input("flg_log", sql.Char, flg_log)
+        
         .input("cod_rol", sql.Int, cod_rol)
 
     
