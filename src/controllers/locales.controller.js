@@ -55,7 +55,7 @@ export const updateLocal = async (req, res) =>{
         .input('dsc_direccion', sql.VarChar, dsc_direccion)
         
         .input("id_depa", sql.Int, id_depa)
-        .input("flg_activo", sql.VarChar, flg_activo)
+        .input("flg_act", sql.VarChar, flg_act)
         .input("flg_main", sql.Char, flg_main)
         .input("id_mod", sql.Int, id_mod)
 
