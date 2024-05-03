@@ -70,7 +70,7 @@ export const updateLocal = async (req, res) =>{
 
     } catch (error) {
         console.error(error);
-        res.status(500).send('Error al actualizar una localidad');
+        res.status(500).send('Error al actualizar una localidad' + error.message);
     }
 }
 
