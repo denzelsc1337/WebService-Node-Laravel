@@ -15,7 +15,12 @@ export const insertPeriferico = async (req, res) =>{
     try {
         console.log(req.body);
         const { 
-            dsc_periferico
+            dsc_periferico,
+
+            flg_act,
+            flg_sfw,
+            flg_usu,
+            flg_procs
         } = req.body;
     
         const pool = await getConnection();
@@ -23,6 +28,10 @@ export const insertPeriferico = async (req, res) =>{
         const result = await pool
         .request()
         .input("dsc_periferico", sql.VarChar, dsc_periferico)
+        .input("flg_act", sql.Char, flg_act)
+        .input("flg_sfw", sql.Char, flg_sfw)
+        .input("flg_usu", sql.Char, flg_usu)
+        .input("flg_procs", sql.Char, flg_procs)
 
         .execute("usp_portal_Insert_Perifericos");
 
