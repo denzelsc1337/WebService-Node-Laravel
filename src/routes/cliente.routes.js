@@ -19,7 +19,8 @@ import {
     bajaLocal,
     getInfoLocal,
     selectorLocalesxCliente,
-    selectorUsuarioxLocal
+    selectorUsuarioxLocal,
+    getDepartamentos
 } from "../controllers/locales.controller.js"
 
 
@@ -107,6 +108,7 @@ router.put('/AddLocal', insertLocal );
 router.put('/updateLocal', updateLocal );
 router.delete('/DeleteLocal', bajaLocal );
 router.get('/local/:idsucursal', getInfoLocal );
+router.get('/departamentos', getDepartamentos );
 
 
 //crud empleados

@@ -161,3 +161,14 @@ export const selectorUsuarioxLocal= async (req, res) =>{
     }
 
 }
+
+
+export const getDepartamentos = async (req, res) =>{
+    const pool = await getConnection();
+
+    const result = await pool.request().query("SELECT * FROM ma_departamento");
+
+    console.log(result);
+    
+    res.json(result.recordset);
+}
