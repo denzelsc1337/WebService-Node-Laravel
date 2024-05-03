@@ -50,7 +50,14 @@ export const insertPeriferico = async (req, res) =>{
 
 
 export const updatePeriferico = async (req, res) =>{
-    const {id_perif, dsc_perif} = req.body;
+    const {
+        id_perif, 
+        dsc_perif,            
+        flg_act,
+        flg_sfw,
+        flg_usu,
+        flg_procs
+    } = req.body;
 
     try {
         const pool = await getConnection();
@@ -58,6 +65,10 @@ export const updatePeriferico = async (req, res) =>{
         .request()
         .input('id_perif', sql.Int, id_perif)
         .input('dsc_perif', sql.VarChar, dsc_perif)
+        .input('flg_act', sql.Char, flg_act)
+        .input('flg_sfw', sql.Char, flg_sfw)
+        .input('flg_usu', sql.Char, flg_usu)
+        .input('flg_procs', sql.Char, flg_procs)
 
         .execute("usp_portal_Update_Periferico");
 
