@@ -269,8 +269,6 @@ export const changeComercial = async (req, res) =>{
 
 }
 
-
-
 export const changeTecnico = async (req, res) =>{
     try {
         console.log(req.body);
