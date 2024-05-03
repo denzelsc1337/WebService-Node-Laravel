@@ -6,8 +6,8 @@ export const loginUsuario = async (req, res) =>{
 
     const result = await pool
     .request()
-    .input('doc_usu', sql.VarChar, req.params.doc_usu)
     .input('mail_usu', sql.VarChar, req.params.mail_usu)
+    .input('dsc_clave', sql.VarChar, req.params.dsc_clave)
     .execute("usp_portal_Login_Cliente")
 
     console.log(result);
