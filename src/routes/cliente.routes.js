@@ -90,7 +90,7 @@ import { createIncidencia, getCountIncidencias, getIncidencias, getIncidenciasXe
 
 const router = Router();
 //login usuario
-router.get('/Login/:doc_usu/:dsc_clave', loginUsuario );
+router.get('/Login/:mail_usu/:dsc_clave', loginUsuario );
 
 router.get('/clientes', getClientes );
 router.get('/selectorIndustria', getIndustrias );
