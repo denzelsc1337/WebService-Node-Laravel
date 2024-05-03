@@ -65,7 +65,6 @@ export const updateLocal = async (req, res) =>{
 
         res.status(200).json({
             message: 'Actualizado',
-            id_sucursal: result.recordset[0].id_sucur
         });
 
     } catch (error) {
