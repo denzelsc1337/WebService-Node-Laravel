@@ -43,7 +43,7 @@ export const insertLocal = async (req, res) =>{
 
 export const updateLocal = async (req, res) =>{
     // console.log(req.params);
-    const {id_sucur, id_cli, dsc_sucursal, dsc_direccion, id_depa,flg_activo, flg_main, id_mod} = req.body;
+    const {id_sucur, id_cli, dsc_sucursal, dsc_direccion, id_depa,flg_act, flg_main, id_mod} = req.body;
 
     try {
         const pool = await getConnection();
@@ -55,7 +55,7 @@ export const updateLocal = async (req, res) =>{
         .input('dsc_direccion', sql.VarChar, dsc_direccion)
         
         .input("id_depa", sql.Int, id_depa)
-        .input("flg_act", sql.VarChar, flg_act)
+        .input("flg_act", sql.Char, flg_act)
         .input("flg_main", sql.Char, flg_main)
         .input("id_mod", sql.Int, id_mod)
 
