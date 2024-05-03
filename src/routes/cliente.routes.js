@@ -30,7 +30,8 @@ import {
     insertEmpleado,
     updateEmpleado,
     bajaEmpleado,
-    getRolesxCliente
+    getRolesxCliente,
+    changeActivo
 } from "../controllers/empleado.controller.js"
 
 
@@ -117,6 +118,9 @@ router.put('/AddEmpleado', insertEmpleado );
 router.put('/updateEmpleado', updateEmpleado );
 router.delete('/DeleteEmpleado', bajaEmpleado );
 router.get('/Roles/:as_flg_kunaq', getRolesxCliente );
+
+router.put('/changeActivo', changeActivo );
+
 
 //crud periferico
 

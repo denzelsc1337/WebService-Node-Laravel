@@ -214,3 +214,31 @@ export const getRolesxCliente = async (req, res) => {
     }
 
 }
+
+
+
+export const changeActivo = async (req, res) =>{
+    try {
+        console.log(req.body);
+        const { 
+            id_empl
+        } = req.body;
+    
+        const pool = await getConnection();
+
+        const result = await pool
+        .request()
+        .input("id_empl", sql.Int, id_empl)
+        .execute("usp_portal_cambiar_activo");
+
+        console.log(result);
+    
+        res.status(200).json({
+            message: 'estado de empleado actualizado',
+        });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Error al cambiar estado '+error.message);
+    }
+
+}
