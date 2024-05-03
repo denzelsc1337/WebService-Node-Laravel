@@ -8,6 +8,7 @@ export const insertLocal = async (req, res) =>{
             dsc_sucursal, 
             dsc_direccion, 
             flg_activo, 
+            id_depa, 
             flg_main,
             usu_reg, 
             usu_mod 
@@ -22,6 +23,7 @@ export const insertLocal = async (req, res) =>{
         .input("dsc_direccion", sql.VarChar, dsc_direccion)
         .input("flg_main", sql.Char, flg_main)
         .input("flg_activo", sql.VarChar, flg_activo)
+        .input("id_depa", sql.Int, id_depa)
         .input("usu_reg", sql.Int, usu_reg)
         .input("usu_mod", sql.Int, usu_mod)
     
