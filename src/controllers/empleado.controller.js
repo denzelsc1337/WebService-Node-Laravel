@@ -19,6 +19,7 @@ export const insertEmpleado = async (req, res) =>{
             flg_tec,
             flg_com,
             flg_log,
+            pass,
             id_usu_reg, 
             id_rol
             
@@ -44,6 +45,8 @@ export const insertEmpleado = async (req, res) =>{
         .input("flg_tec", sql.Char, flg_tec)
         .input("flg_com", sql.Char, flg_com)
         .input("flg_log", sql.Char, flg_log)
+
+        .input("pass", sql.VarChar, pass)
 
         .input("id_usu_reg", sql.Int, id_usu_reg)
         .input("id_rol", sql.Int, id_rol)
