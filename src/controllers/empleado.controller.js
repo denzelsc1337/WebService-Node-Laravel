@@ -94,7 +94,8 @@ export const updateEmpleado = async (req, res) =>{
         flg_log,
         cod_rol,
         pass,
-        id_mod
+        id_mod,
+        tipo_trbjo
     } = req.body;
 
     try {
@@ -124,7 +125,8 @@ export const updateEmpleado = async (req, res) =>{
         .input("pass", sql.VarChar, pass)
         .input("id_mod", sql.Int, id_mod)
 
-    
+        .input("tipo_trbjo", sql.Char, tipo_trbjo)
+        
         .execute("usp_portal_Update_Empleado");
 
 
