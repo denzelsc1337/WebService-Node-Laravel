@@ -35,7 +35,8 @@ import {
     changeComercial,
     changeTecnico,
     changeLogin,
-    getEmpleadosXcliente
+    getEmpleadosXcliente,
+    getContactosXcliente
 } from "../controllers/empleado.controller.js"
 
 
@@ -129,6 +130,7 @@ router.put('/changeTecnico', changeTecnico );
 router.put('/changeLogin', changeLogin );
 
 router.get('/EmpleadoCliente/:cod_cliente', getEmpleadosXcliente);
+router.get('/ContactosCliente/:cod_cliente', getContactosXcliente);
 
 //crud periferico
 
