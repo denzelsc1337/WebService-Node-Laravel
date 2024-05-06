@@ -355,7 +355,7 @@ export const getEmpleadosXcliente = async (req, res) =>{
         // console.log(result);
     } catch (error) {
         console.error(error);
-        res.status(500).send('Error al encontrar los locales '+error);
+        res.status(500).send('Error al encontrar los empleados '+error);
     }
 
 }
@@ -374,6 +374,30 @@ export const getContactosXcliente = async (req, res) =>{
         if(result.rowsAffected[0] === 0){
             return res.status(400).json({
                 message: "Contactos no encontrados"
+            })
+        }
+        res.json(result.recordset);
+        // console.log(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al encontrar los contactos '+error);
+    }
+
+}
+
+export const getLocalesXcliente = async (req, res) =>{
+    try {
+        console.log(req.params);
+        const pool = await getConnection();
+    
+        const result = await pool
+        .request()
+        .input('cod_cliente', sql.Int, req.params.cod_cliente)
+        .execute("usp_portal_Listar_LocalesxCliente")
+    
+        if(result.rowsAffected[0] === 0){
+            return res.status(400).json({
+                message: "Locales no encontrados"
             })
         }
         res.json(result.recordset);
