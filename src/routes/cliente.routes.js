@@ -38,7 +38,8 @@ import {
     getEmpleadosXcliente,
     getContactosXcliente,
     getLocalesXcliente,
-    getConteoLocalesXcliente
+    getConteoLocalesXcliente,
+    getEmpleadosLogXcliente
 } from "../controllers/empleado.controller.js"
 
 
@@ -137,6 +138,7 @@ router.get('/EmpleadoCliente/:cod_cliente', getEmpleadosXcliente);
 router.get('/ContactosCliente/:cod_cliente', getContactosXcliente);
 router.get('/LocalesCliente/:cod_cliente', getLocalesXcliente);
 router.get('/conteoLocalesCliente/:cod_cliente', getConteoLocalesXcliente);
+router.get('/EmpleadosAutorizados/:cod_cliente', getEmpleadosLogXcliente);
 
 //crud periferico
 

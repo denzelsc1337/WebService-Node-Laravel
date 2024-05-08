@@ -437,3 +437,29 @@ export const getConteoLocalesXcliente = async (req, res) =>{
 
 
 
+export const getEmpleadosLogXcliente = async (req, res) =>{
+    try {
+        console.log(req.params);
+        const pool = await getConnection();
+    
+        const result = await pool
+        .request()
+        .input('cod_cliente', sql.Int, req.params.cod_cliente)
+        .execute("usp_portal_lista_auth_login_empleados")
+    
+        if(result.rowsAffected[0] === 0){
+            return res.status(400).json({
+                message: "Empleados autorizados no encontrados"
+            })
+        }
+        res.json(result.recordset);
+        // console.log(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al encontrar los empleados autorizados '+error);
+    }
+
+}
+
+
+
