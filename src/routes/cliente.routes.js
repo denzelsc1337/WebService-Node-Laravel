@@ -97,7 +97,7 @@ import { getAsignaciones, insertEquipoAsignacion, updateEquipoAsign } from "../c
 
 import { bajaSoftware, createSoftware, getInfoSoftware, getSoftInstalado, getSoftware, insertSoftware, selectorCategSoft, updateSoftware_mant } from "../controllers/software.controller.js";
 import { createIncidencia, getCountIncidencias, getIncidencias, getIncidenciasXestado, getTipoIncidencia } from "../controllers/IncidenciasController.js";
-import { CreateMarca, getProveedores } from "../controllers/proveedor.controller.js";
+import { CreateMarca, getInfoProveedor, getProveedores, updateProveedor } from "../controllers/proveedor.controller.js";
 
 const router = Router();
 //login usuario
@@ -206,6 +206,8 @@ router.get('/ConteoIncidencias', getCountIncidencias );
 //proveedores
 router.put('/AddProveedor', CreateMarca );
 router.get('/Proveedores', getProveedores);
+router.get('/ProveedorInfo/:id_prov', getInfoProveedor);
+router.put('/UpdateProveedor', updateProveedor );
 
 //selectors 
 router.get('/selectorClientes', selectorClientes );
