@@ -89,6 +89,6 @@ export const updateProveedor = async (req, res) =>{
 
     } catch (error) {
         console.error(error);
-        res.status(500).send('Error al actualizar marca');
+        res.status(500).send('Error al actualizar marca' + error.message);
     }
 }
