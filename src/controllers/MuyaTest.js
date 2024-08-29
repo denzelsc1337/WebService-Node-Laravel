@@ -2,11 +2,12 @@ import { getConnection, sql } from "../database/connection.js";
 
 export const ListarVacacionesProgramadas = async (req, res) => {
   try {
+    const codTrabajador = "%";
     const pool = await getConnection();
 
     const result = await pool
       .request()
-      .input("cod_trabajador", sql.VarChar, req.params.cod_trabajador)
+      .input("cod_trabajador", sql.VarChar, codTrabajador)
       .execute("usp_webppm_Consultar_VacacionesProgramadas");
 
     if (result.rowsAffected[0] === 0) {

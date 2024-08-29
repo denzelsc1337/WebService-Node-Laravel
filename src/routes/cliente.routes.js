@@ -237,6 +237,6 @@ router.get(
   selectorMarcaxPeriferico
 );
 router.get("/selectorModeloXMarca/:id_marca", selectorModeloxMarca);
-router.get("/ListarVacaciones/:cod_trabajador", ListarVacacionesProgramadas);
+router.get("/ListarVacaciones", ListarVacacionesProgramadas);
 
 export default router;
