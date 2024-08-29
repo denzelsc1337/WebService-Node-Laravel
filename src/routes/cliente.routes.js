@@ -222,7 +222,7 @@ router.put("/AddProveedor", CreateMarca);
 router.get("/Proveedores", getProveedores);
 router.get("/ProveedorInfo/:id_prov", getInfoProveedor);
 router.put("/UpdateProveedor", updateProveedor);
-router.put("/ChangeEstadoProveedor", changeEstadoProveedor);
+// router.put("/ChangeEstadoProveedor", changeEstadoProveedor);
 
 //selectors
 router.get("/selectorClientes", selectorClientes);
