@@ -1,228 +1,242 @@
 import { Router } from "express";
 
 import {
-    getClientes, 
-    getLocales, 
-    getInfoCliente, 
-    getIndustrias,
-    insertCliente,
-    updateCliente,
-    bajaCliente,
-    selectorClientes,
-    selectorServicios,
-    loginUsuario
-} from "../controllers/cliente.controller.js"
+  getClientes,
+  getLocales,
+  getInfoCliente,
+  getIndustrias,
+  insertCliente,
+  updateCliente,
+  bajaCliente,
+  selectorClientes,
+  selectorServicios,
+  loginUsuario,
+} from "../controllers/cliente.controller.js";
 
 import {
-    insertLocal,
-    updateLocal,
-    bajaLocal,
-    getInfoLocal,
-    selectorLocalesxCliente,
-    selectorUsuarioxLocal,
-    getDepartamentos
-} from "../controllers/locales.controller.js"
-
-
-import {
-    getEmpleados,
-    getInfoEmpleado,
-    insertEmpleado,
-    updateEmpleado,
-    bajaEmpleado,
-    getRolesxCliente,
-    changeActivo,
-    changeComercial,
-    changeTecnico,
-    changeLogin,
-    getEmpleadosXcliente,
-    getContactosXcliente,
-    getLocalesXcliente,
-    getConteoLocalesXcliente,
-    getEmpleadosLogXcliente
-} from "../controllers/empleado.controller.js"
-
+  insertLocal,
+  updateLocal,
+  bajaLocal,
+  getInfoLocal,
+  selectorLocalesxCliente,
+  selectorUsuarioxLocal,
+  getDepartamentos,
+} from "../controllers/locales.controller.js";
 
 import {
-    insertPeriferico,
-    updatePeriferico,
-    bajaPeriferico,
-    getInfoPeriferico
-}from "../controllers/periferico.controller.js"
-
-
-import{
-    getMarcas,
-    getInfoMarca,
-    insertMarca,
-    updateMarca,
-    bajaMarca,
-    changeSoftware,
-    changeHardware
-}from "../controllers/marcas.controller.js"
-
-
-import{
-    getModelos,
-    insertModelo,
-    updateModelo,
-    getInfoModelo
-}from "../controllers/modelo.controller.js"
-
+  getEmpleados,
+  getInfoEmpleado,
+  insertEmpleado,
+  updateEmpleado,
+  bajaEmpleado,
+  getRolesxCliente,
+  changeActivo,
+  changeComercial,
+  changeTecnico,
+  changeLogin,
+  getEmpleadosXcliente,
+  getContactosXcliente,
+  getLocalesXcliente,
+  getConteoLocalesXcliente,
+  getEmpleadosLogXcliente,
+} from "../controllers/empleado.controller.js";
 
 import {
-    bajaProcesador,
-    getInfoProcesador,
-    getProcesadores,
-    insertProcesador,
-    updateProcesador
-}from "../controllers/procesador.controller.js"
-
+  insertPeriferico,
+  updatePeriferico,
+  bajaPeriferico,
+  getInfoPeriferico,
+} from "../controllers/periferico.controller.js";
 
 import {
-     getEquipos, 
-     getEquiposXcliente, 
-     getInfoEquipo, 
-     insertEquipoInventario,
-     searchEquiposFilter,
-     selectorEstados,
-     selectorMarcaxPeriferico,
-     selectorModeloxMarca,
-     selectorProveedores,
-     updateEquipoInvent
+  getMarcas,
+  getInfoMarca,
+  insertMarca,
+  updateMarca,
+  bajaMarca,
+  changeSoftware,
+  changeHardware,
+} from "../controllers/marcas.controller.js";
+
+import {
+  getModelos,
+  insertModelo,
+  updateModelo,
+  getInfoModelo,
+} from "../controllers/modelo.controller.js";
+
+import {
+  bajaProcesador,
+  getInfoProcesador,
+  getProcesadores,
+  insertProcesador,
+  updateProcesador,
+} from "../controllers/procesador.controller.js";
+
+import {
+  getEquipos,
+  getEquiposXcliente,
+  getInfoEquipo,
+  insertEquipoInventario,
+  searchEquiposFilter,
+  selectorEstados,
+  selectorMarcaxPeriferico,
+  selectorModeloxMarca,
+  selectorProveedores,
+  updateEquipoInvent,
 } from "../controllers/gestionEquipos.controller.js";
 
+import {
+  getAsignaciones,
+  insertEquipoAsignacion,
+  updateEquipoAsign,
+} from "../controllers/asignacion.controller.js";
 
-import { getAsignaciones, insertEquipoAsignacion, updateEquipoAsign } from "../controllers/asignacion.controller.js";
-
-import { bajaSoftware, createSoftware, getInfoSoftware, getSoftInstalado, getSoftware, insertSoftware, selectorCategSoft, updateSoftware_mant } from "../controllers/software.controller.js";
-import { createIncidencia, getCountIncidencias, getIncidencias, getIncidenciasXestado, getTipoIncidencia } from "../controllers/IncidenciasController.js";
-import { CreateMarca, getInfoProveedor, getProveedores, updateProveedor } from "../controllers/proveedor.controller.js";
+import {
+  bajaSoftware,
+  createSoftware,
+  getInfoSoftware,
+  getSoftInstalado,
+  getSoftware,
+  insertSoftware,
+  selectorCategSoft,
+  updateSoftware_mant,
+} from "../controllers/software.controller.js";
+import {
+  createIncidencia,
+  getCountIncidencias,
+  getIncidencias,
+  getIncidenciasXestado,
+  getTipoIncidencia,
+} from "../controllers/IncidenciasController.js";
+import {
+  CreateMarca,
+  getInfoProveedor,
+  getProveedores,
+  updateProveedor,
+} from "../controllers/proveedor.controller.js";
+import { ListarVacacionesProgramadas } from "../controllers/MuyaTest.js";
 
 const router = Router();
 //login usuario
-router.get('/Login/:mail_usu/:dsc_clave', loginUsuario );
+router.get("/Login/:mail_usu/:dsc_clave", loginUsuario);
 
-router.get('/clientes', getClientes );
-router.get('/selectorIndustria', getIndustrias );
-router.get('/Empleados', getEmpleados );
-router.put('/AddCliente', insertCliente );
-router.get('/cliente/:id_cli', getInfoCliente );
-router.put('/UpdateCliente', updateCliente );
-router.delete('/DeleteCliente', bajaCliente );
-
+router.get("/clientes", getClientes);
+router.get("/selectorIndustria", getIndustrias);
+router.get("/Empleados", getEmpleados);
+router.put("/AddCliente", insertCliente);
+router.get("/cliente/:id_cli", getInfoCliente);
+router.put("/UpdateCliente", updateCliente);
+router.delete("/DeleteCliente", bajaCliente);
 
 // crud locales
-router.get('/locales', getLocales );
-router.put('/AddLocal', insertLocal );
-router.put('/updateLocal', updateLocal );
-router.delete('/DeleteLocal', bajaLocal );
-router.get('/local/:idsucursal', getInfoLocal );
-router.get('/departamentos', getDepartamentos );
-
+router.get("/locales", getLocales);
+router.put("/AddLocal", insertLocal);
+router.put("/updateLocal", updateLocal);
+router.delete("/DeleteLocal", bajaLocal);
+router.get("/local/:idsucursal", getInfoLocal);
+router.get("/departamentos", getDepartamentos);
 
 //crud empleados
-router.get('/Empleado/:id_empl', getInfoEmpleado );
-router.put('/AddEmpleado', insertEmpleado );
-router.put('/updateEmpleado', updateEmpleado );
-router.delete('/DeleteEmpleado', bajaEmpleado );
-router.get('/Roles/:as_flg_kunaq', getRolesxCliente );
+router.get("/Empleado/:id_empl", getInfoEmpleado);
+router.put("/AddEmpleado", insertEmpleado);
+router.put("/updateEmpleado", updateEmpleado);
+router.delete("/DeleteEmpleado", bajaEmpleado);
+router.get("/Roles/:as_flg_kunaq", getRolesxCliente);
 
-router.put('/changeActivo', changeActivo );
-router.put('/changeComercial', changeComercial );
-router.put('/changeTecnico', changeTecnico );
-router.put('/changeLogin', changeLogin );
-
+router.put("/changeActivo", changeActivo);
+router.put("/changeComercial", changeComercial);
+router.put("/changeTecnico", changeTecnico);
+router.put("/changeLogin", changeLogin);
 
 //perfil de la empresa
-router.get('/EmpleadoCliente/:cod_cliente', getEmpleadosXcliente);
-router.get('/ContactosCliente/:cod_cliente', getContactosXcliente);
-router.get('/LocalesCliente/:cod_cliente', getLocalesXcliente);
-router.get('/conteoLocalesCliente/:cod_cliente', getConteoLocalesXcliente);
-router.get('/EmpleadosAutorizados/:cod_cliente', getEmpleadosLogXcliente);
+router.get("/EmpleadoCliente/:cod_cliente", getEmpleadosXcliente);
+router.get("/ContactosCliente/:cod_cliente", getContactosXcliente);
+router.get("/LocalesCliente/:cod_cliente", getLocalesXcliente);
+router.get("/conteoLocalesCliente/:cod_cliente", getConteoLocalesXcliente);
+router.get("/EmpleadosAutorizados/:cod_cliente", getEmpleadosLogXcliente);
 
 //crud periferico
 
-router.put('/AddPeriferico', insertPeriferico );
-router.get('/Periferico/:id_perif', getInfoPeriferico );
-router.put('/updatePeriferico', updatePeriferico );
-router.delete('/DeletePeriferico', bajaPeriferico );
+router.put("/AddPeriferico", insertPeriferico);
+router.get("/Periferico/:id_perif", getInfoPeriferico);
+router.put("/updatePeriferico", updatePeriferico);
+router.delete("/DeletePeriferico", bajaPeriferico);
 
 //crud marcas
-router.get('/marcas', getMarcas );
-router.get('/Marca/:id_marca', getInfoMarca );
-router.put('/AddMarca', insertMarca );
-router.put('/updateMarca', updateMarca );
-router.delete('/DeleteMarca', bajaMarca );
-router.put('/ChangeSoftware', changeSoftware );
-router.put('/ChangeHardware', changeHardware );
-
+router.get("/marcas", getMarcas);
+router.get("/Marca/:id_marca", getInfoMarca);
+router.put("/AddMarca", insertMarca);
+router.put("/updateMarca", updateMarca);
+router.delete("/DeleteMarca", bajaMarca);
+router.put("/ChangeSoftware", changeSoftware);
+router.put("/ChangeHardware", changeHardware);
 
 //crud modelos
-router.get('/modelos', getModelos );
-router.put('/AddModelo', insertModelo );
-router.get('/Modelo/:id_modelo', getInfoModelo);
-router.put('/updateModelo', updateModelo );
-
+router.get("/modelos", getModelos);
+router.put("/AddModelo", insertModelo);
+router.get("/Modelo/:id_modelo", getInfoModelo);
+router.put("/updateModelo", updateModelo);
 
 //crud procesadores
-router.get('/procesadores', getProcesadores );
-router.put('/AddProcesador', insertProcesador );
-router.get('/Procesador/:id_procesador', getInfoProcesador);
-router.put('/updateProcesador', updateProcesador );
-router.delete('/DeleteProcesador', bajaProcesador );
+router.get("/procesadores", getProcesadores);
+router.put("/AddProcesador", insertProcesador);
+router.get("/Procesador/:id_procesador", getInfoProcesador);
+router.put("/updateProcesador", updateProcesador);
+router.delete("/DeleteProcesador", bajaProcesador);
 
 //crud gestion equipos
-router.get('/equiposInventario', getEquipos );
-router.put('/AddEquipo', insertEquipoInventario );
-router.get('/Equipo/:id_equip', getInfoEquipo);
-router.put('/UpdateEquipo', updateEquipoInvent );
+router.get("/equiposInventario", getEquipos);
+router.put("/AddEquipo", insertEquipoInventario);
+router.get("/Equipo/:id_equip", getInfoEquipo);
+router.put("/UpdateEquipo", updateEquipoInvent);
 
-router.get('/equipofiltro/:id_client/:id_sucur/:id_usu/:id_estado', searchEquiposFilter );
-router.get('/EquipoCliente/:id_client', getEquiposXcliente);
+router.get(
+  "/equipofiltro/:id_client/:id_sucur/:id_usu/:id_estado",
+  searchEquiposFilter
+);
+router.get("/EquipoCliente/:id_client", getEquiposXcliente);
 
-router.put('/AddAsignacion', insertEquipoAsignacion );
-router.get('/Asignaciones/:id_equipo', getAsignaciones);
-router.put('/UpdateAsignacion', updateEquipoAsign );
+router.put("/AddAsignacion", insertEquipoAsignacion);
+router.get("/Asignaciones/:id_equipo", getAsignaciones);
+router.put("/UpdateAsignacion", updateEquipoAsign);
 
 //software instalado
-router.get('/SoftwareInstalado/:id_equipo', getSoftInstalado);
-router.get('/SoftwareInfo/:id_soft', getInfoSoftware);
-router.get('/Software', getSoftware);
-router.put('/AddSoftware', insertSoftware );
-router.put('/CreateSoftware', createSoftware );
-router.put('/UpdateSoftwareMain', updateSoftware_mant );
-router.delete('/DeleteSoftware', bajaSoftware );
-
+router.get("/SoftwareInstalado/:id_equipo", getSoftInstalado);
+router.get("/SoftwareInfo/:id_soft", getInfoSoftware);
+router.get("/Software", getSoftware);
+router.put("/AddSoftware", insertSoftware);
+router.put("/CreateSoftware", createSoftware);
+router.put("/UpdateSoftwareMain", updateSoftware_mant);
+router.delete("/DeleteSoftware", bajaSoftware);
 
 //incidencias
-router.put('/AddIncidencia', createIncidencia );
-router.get('/TipoIncidente', getTipoIncidencia );
-router.get('/Incidencias', getIncidencias );
-router.get('/IncidenciasEstado/:estado', getIncidenciasXestado );
-router.get('/ConteoIncidencias', getCountIncidencias );
-
+router.put("/AddIncidencia", createIncidencia);
+router.get("/TipoIncidente", getTipoIncidencia);
+router.get("/Incidencias", getIncidencias);
+router.get("/IncidenciasEstado/:estado", getIncidenciasXestado);
+router.get("/ConteoIncidencias", getCountIncidencias);
 
 //proveedores
-router.put('/AddProveedor', CreateMarca );
-router.get('/Proveedores', getProveedores);
-router.get('/ProveedorInfo/:id_prov', getInfoProveedor);
-router.put('/UpdateProveedor', updateProveedor );
+router.put("/AddProveedor", CreateMarca);
+router.get("/Proveedores", getProveedores);
+router.get("/ProveedorInfo/:id_prov", getInfoProveedor);
+router.put("/UpdateProveedor", updateProveedor);
+router.put("/ChangeEstadoProveedor", changeEstadoProveedor);
 
-//selectors 
-router.get('/selectorClientes', selectorClientes );
-router.get('/selectorEstados', selectorEstados );
-router.get('/selectorProveedores', selectorProveedores );
-router.get('/selectorServicios', selectorServicios );
-router.get('/selectorCategSoftware', selectorCategSoft );
-router.get('/selectorLocalCliente/:id_cliente', selectorLocalesxCliente );
-router.get('/selectorUsuarioLocal/:id_sucursal', selectorUsuarioxLocal );
-router.get('/selectorMarcasXPeriferico/:id_periferico', selectorMarcaxPeriferico );
-router.get('/selectorModeloXMarca/:id_marca', selectorModeloxMarca );
-
-
-
-
-
+//selectors
+router.get("/selectorClientes", selectorClientes);
+router.get("/selectorEstados", selectorEstados);
+router.get("/selectorProveedores", selectorProveedores);
+router.get("/selectorServicios", selectorServicios);
+router.get("/selectorCategSoftware", selectorCategSoft);
+router.get("/selectorLocalCliente/:id_cliente", selectorLocalesxCliente);
+router.get("/selectorUsuarioLocal/:id_sucursal", selectorUsuarioxLocal);
+router.get(
+  "/selectorMarcasXPeriferico/:id_periferico",
+  selectorMarcaxPeriferico
+);
+router.get("/selectorModeloXMarca/:id_marca", selectorModeloxMarca);
+router.get("/ListarVacaciones", ListarVacacionesProgramadas);
 
 export default router;
