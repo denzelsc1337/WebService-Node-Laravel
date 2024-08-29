@@ -6,7 +6,7 @@ export const ListarVacacionesProgramadas = async (req, res) => {
 
     const result = await pool
       .request()
-      .input("cod_trabajador", sql.Int, req.params.cod_trabajador)
+      .input("cod_trabajador", sql.VarChar, req.params.cod_trabajador)
       .execute("usp_webppm_Consultar_VacacionesProgramadas");
 
     if (result.rowsAffected[0] === 0) {
