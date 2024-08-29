@@ -24,7 +24,7 @@ const dbsettings = {
     trustedconnection: false,
     enableArithAbort: true,
     encrypt: false,
-    trustServerCertificate: false,
+    trustServerCertificate: true,
   },
 };
 
